@@ -5,7 +5,6 @@ import { useTheme } from "../../utils/providers/theme";
 
 export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
-  console.log(theme, "theme");
 
   return (
     <button className={``} onClick={toggleTheme}>

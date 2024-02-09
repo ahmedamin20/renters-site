@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeSwitcher } from "../common/themeSwitcher";
-
+import logoLight from "/src/assets/imgs/logoLight.png";
+import logoDark from "/src/assets/imgs/logoDark.png";
+import { useTheme } from "../../utils/providers/theme";
 const Navbar = () => {
+  const [logo, setLogo] = useState();
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    theme !== "light" ? setLogo(logoLight) : setLogo(logoDark);
+  }, [theme]);
+
   return (
-    <nav className="bg-slate-300 rounded-lg p-5 border-gray-200 top-0 sticky dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <ThemeSwitcher />
+    <nav className="bg-slate-300 rounded-lg border-gray-200 top-0 sticky dark:bg-gray-900">
+      <div className="max-w-full px-5 flex flex-wrap items-center justify-between mx-auto p-1">
         <a
           href="https://flowbite.com/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img
-            src="/src/assets/imgs/image1.jpg"
-            className="h-8"
-            alt="Flowbite Logo"
-          />
+          <img src={logo} className="max-w-20 min-w-10" alt="Flowbite Logo" />
         </a>
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
@@ -27,13 +31,13 @@ const Navbar = () => {
           >
             <span className="sr-only">Open user menu</span>
             <img
-              className="w-8 h-8 rounded-full"
-              src="/src/assets/imgs/image1.jpg"
+              className="w-[80px] h-[80px] rounded-full"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
               alt="user photo"
             />
           </button>
-          <div
-            className="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow  dark:divide-gray-600"
+          {/*<div
+            className="z-50 hidden text-base list-none divide-y divide-gray-100 rounded-lg shadow  dark:divide-gray-600"
             id="user-dropdown"
           >
             <div className="px-4 py-3">
@@ -78,7 +82,7 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-          </div>
+  </div>*/}
           <button
             data-collapse-toggle="navbar-user"
             type="button"
@@ -104,11 +108,19 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
+        <ThemeSwitcher />
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-user"
+          Use
+          responsive
+          breakpoints
+          triggers
+          with
+          TW
+          el
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0    dark:border-gray-700">
+          <ul className="flex text-2xl font-bold flex-col p-2 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700 w-[100%]">
             <li>
               <a
                 href="#"
