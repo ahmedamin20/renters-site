@@ -18,7 +18,7 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: "/test",
+          path: "/product",
           element: <OneProductPage />,
         },
         {

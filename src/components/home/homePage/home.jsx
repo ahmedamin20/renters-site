@@ -12,7 +12,6 @@ const HomePage = () => {
         <AdsSection />
         <CategoryBar />
         <ProductCard />
-        <OneProductPage />
       </Div>
     </>
   );

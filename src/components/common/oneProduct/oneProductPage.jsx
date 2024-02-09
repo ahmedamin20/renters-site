@@ -1,6 +1,4 @@
 import { useState } from "react";
-import ProductPageBody from "./ProductPageBody";
-import image1 from "/src/assets/imgs/image1.jpg";
 const OneProductPage = () => {
   const [data, setData] = useState([]);
   const URL = "api/orders";
@@ -22,7 +20,7 @@ const OneProductPage = () => {
           <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
             <div className="sticky top-0 overflow-hidden ">
               <div className="relative mb-6 lg:mb-10 lg:h-96">
-                <a
+                <button
                   className="absolute left-0 transform lg:ml-2 top-1/2 translate-1/2"
                   href="#"
                 >
@@ -39,7 +37,7 @@ const OneProductPage = () => {
                       d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
                     ></path>
                   </svg>
-                </a>
+                </button>
                 <img
                   className="object-contain w-full lg:h-full"
                   src="https://i.postimg.cc/0jwyVgqz/Microprocessor1-removebg-preview.png"
@@ -370,7 +368,7 @@ const OneProductPage = () => {
                   href="#"
                   className="w-full px-4 py-3 text-center text-gray-100 bg-blue-600 border border-transparent dark:border-gray-700 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-100 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl"
                 >
-                  Buy now
+                  Rent now
                 </a>
               </div>
             </div>
