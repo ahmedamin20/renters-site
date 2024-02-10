@@ -4,6 +4,7 @@ import Div from "../../common/Div";
 import ProductCard from "../../common/productCard";
 import CategoryBar from "../../common/CategoryBar";
 import ShowUser from "../../common/showUser";
+import UserAndOrderPage from "../../common/userAndOrderScreen/userAndOrderPage";
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
         <CategoryBar />
         <ProductCard />
         <ShowUser />
+        <UserAndOrderPage />
       </Div>
     </>
   );
