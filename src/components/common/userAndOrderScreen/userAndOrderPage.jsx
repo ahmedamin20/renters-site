@@ -1,5 +1,4 @@
 import React from "react";
-import OneProductPage from "../oneProduct/oneProductPage";
 import ShowProductPage from "../oneProduct/showOneProduct";
 
 const UserAndOrderPage = () => {
