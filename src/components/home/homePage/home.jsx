@@ -5,6 +5,7 @@ import ProductCard from "../../common/productCard";
 import CategoryBar from "../../common/CategoryBar";
 import ShowUser from "../../common/showUser";
 import UserAndOrderPage from "../../common/userAndOrderScreen/userAndOrderPage";
+import Login from "../../auth/signIn/login";
 
 const HomePage = () => {
   return (
@@ -14,10 +15,11 @@ const HomePage = () => {
         <CategoryBar />
         <ProductCard />
         <ShowUser />
+        <Login/>
         <UserAndOrderPage />
       </Div>
     </>
   );
-};
+};ShowUser
 
 export default HomePage;
