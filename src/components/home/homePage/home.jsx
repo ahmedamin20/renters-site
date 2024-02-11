@@ -6,6 +6,7 @@ import CategoryBar from "../../common/CategoryBar";
 import ShowUser from "../../common/showUser";
 import UserAndOrderPage from "../../common/userAndOrderScreen/userAndOrderPage";
 import Login from "../../auth/signIn/login";
+import Signup from '../../auth/signUp/signup';
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
         <CategoryBar />
         <ProductCard />
         <ShowUser />
+        <Signup/>
         <Login/>
         <UserAndOrderPage />
       </Div>
