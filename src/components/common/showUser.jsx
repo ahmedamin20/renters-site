@@ -1,5 +1,6 @@
 import React from "react";
 import RateStar from "./rateStar";
+import AcceptAndRejectFooter from "./acceptAndRejectFooter";
 
 const ShowUser = () => {
   return (
@@ -83,14 +84,7 @@ const ShowUser = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-2 p-2">
-            <button className="flex-1 rounded-full bg-blue-600 dark:bg-blue-800 text-white dark:text-white antialiased font-bold hover:bg-blue-800 dark:hover:bg-blue-900 px-4 py-2">
-              Accept
-            </button>
-            <button className="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black hover:bg-rose-600 hover:text-white dark:text-white px-4 py-2">
-              Reject
-            </button>
-          </div>
+          <AcceptAndRejectFooter/>
         </div>
         <div className="px-4 py-4">
           <div className="flex gap-2 items-center text-gray-800 dark:text-gray-300 mb-4">
