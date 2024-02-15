@@ -1,5 +1,5 @@
 import { API_ENDPOINTS } from "../../utils/config/constants";
-import { defaultAPI } from "../axios";
+import defaultAPI from "../axios";
 
 export const getProfile = async () => {
   const { data } = await defaultAPI.get(API_ENDPOINTS.PROFILE);

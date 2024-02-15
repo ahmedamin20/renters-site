@@ -14,7 +14,7 @@ function App() {
       element: <Wrapper />,
       children: [
         {
-          path: "",
+          path: "/home",
           element: <HomePage />,
         },
         {

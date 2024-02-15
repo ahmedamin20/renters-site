@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Navbar from "../home/nav";
 import Footer from "../home/footer";
 import { Outlet } from "react-router-dom";
+import withGuard from '../../utils/with_guard';
 
-export default function Wrapper() {
+const  Wrapper = () => {
   return (
     <>
       <div className="flex flex-row gap-[35px] font-medium  w-full ltr:pr-[25px] rtl:pl-[25px] ">
@@ -20,3 +21,4 @@ export default function Wrapper() {
     </>
   );
 }
+export  default withGuard(Wrapper);
