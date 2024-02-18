@@ -18,6 +18,7 @@ function SigninForm() {
         onSuccess: (res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
             navigate("/home");
+            window.location.reload()
         },
         onError: (error) => {
             console.error("Sign-in error:", error);
