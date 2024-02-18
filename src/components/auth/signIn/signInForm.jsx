@@ -10,13 +10,13 @@ function SigninForm() {
     const formRef = useRef()
     const navigate = useNavigate()
     const { isPending, mutate, isSuccess } = useMutation({
-        mutationFn: (e)=>defaultAPI.post('/auth/login/dashboard',{
-            email: e.target.email?.value,
-            password: e.target.password?.value,
+        mutationFn: ({ email, password }) => defaultAPI.post('/auth/login/dashboard', {
+            email,
+            password,
             fcm_token: "121232" || 'no token found'
         }),
         onSuccess: (res) => {
-            localStorage.setItem(ACCESS_TOKEN, res.data.token);
+            localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
             navigate("/home");
         },
         onError: (error) => {
@@ -25,8 +25,12 @@ function SigninForm() {
     });
     const onSubmit = (e) => {
         e.preventDefault()
-        mutate()
+        const formData = new FormData(formRef.current);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        mutate({ email, password });
     }
+    
     return (
         <form ref={formRef} onSubmit={onSubmit} className='flex flex-col gap-[10px]'>
             <TextInput placeholder='Email' name='email' type='email' required={true} label='Email' />
