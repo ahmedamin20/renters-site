@@ -4,7 +4,7 @@ import Navbar from "../home/nav";
 import Footer from "../home/footer";
 import { Outlet } from "react-router-dom";
 import withGuard from '../../utils/with_guard';
-import NeqNavbar from "../home/Navbar/navbar";
+import NewNavbar from "../home/Navbar/navbar";
 
 const  Wrapper = () => {
   return (
@@ -16,7 +16,7 @@ const  Wrapper = () => {
   {/* 
 
   <Navbar />
-*/}          <NeqNavbar/>
+*/}          <NewNavbar/>
           <Outlet />
           <ReactQueryDevtools initialIsOpen={false} />
         </main>
