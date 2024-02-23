@@ -1,7 +1,7 @@
 import MainButton from "../../common/mianBtn";
 
 export default function CustomSwiperSlide({ ad }) {
-  console.log(ad, "data");
+  console.log(ad, "data dsadsadsadasdsdsads");
   return (
     <div className="h-full home-swiper relative font-volkhov flex flex-col justify-center gap-5 text-center text-background lg:text-left">
       <img
@@ -22,7 +22,7 @@ export default function CustomSwiperSlide({ ad }) {
         <p className="max-w-sm md:max-w-md lg:max-w-lg opacity-80 max-lg:mx-auto font-cairo ">
           {ad.description}
         </p>
-        <MainButton className="max-lg:mx-auto">get started</MainButton>
+        {/*<MainButton className="max-lg:mx-auto">get started</MainButton>*/}
       </div>
     </div>
   );

@@ -7,32 +7,38 @@ import CustomSwiperSlide from "./sliderSwiper";
 import image1 from "/src/assets/imgs/image1.jpg";
 import image2 from "/src/assets/imgs/image2.jpg";
 import image3 from "/src/assets/imgs/image3.jpg";
+import { useQuery } from "@tanstack/react-query";
+import { getAds } from "../../../api/queries/ads";
 
 export default function HomeSlider({ adsData }) {
-  const ads = [
-    {
-      id: 1,
-      title: "title1",
-      description: "description1",
-      discount: "discount1",
-      image: image1,
-    },
-    {
-      id: 2,
-      title: "title2",
-      image: image2,
-      description: "description2",
-      discount: "discount2",
-    },
-    {
-      id: 3,
-      title: "title3",
-      image: image3,
-      description: "description3",
-      discount: "discount3",
-    },
-  ];
-
+  // const ads = [
+  //   {
+  //     id: 1,
+  //     title: "title1",
+  //     description: "description1",
+  //     discount: "discount1",
+  //     image: image1,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "title2",
+  //     image: image2,
+  //     description: "description2",
+  //     discount: "discount2",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "title3",
+  //     image: image3,
+  //     description: "description3",
+  //     discount: "discount3",
+  //   },
+  // ];
+  const {data:ads} = useQuery({
+    queryKey:["ads"],
+    queryFn:getAds
+  })
+  console.log(ads,"adsDataHere!!!!!")
   return (
     <div
       className="rounded-lg"
@@ -51,13 +57,13 @@ export default function HomeSlider({ adsData }) {
         pagination={{ clickable: true }}
         dir="ltr"
       >
-        {ads?.map((ad) => {
-          return (
-            <SwiperSlide key={ad.id}>
-              <CustomSwiperSlide ad={ad} />
-            </SwiperSlide>
-          );
-        })}
+      {ads?.data?.map((ad) => {
+        return (
+          <SwiperSlide key={ad.id}>
+            <CustomSwiperSlide ad={ad} />
+          </SwiperSlide>
+        );
+      })}
       </Swiper>
     </div>
   );

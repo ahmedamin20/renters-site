@@ -3,10 +3,10 @@ import AdsSection from "../ads/adsSection";
 import Div from "../../common/Div";
 import ProductCard from "../../common/productCard";
 import CategoryBar from "../../common/CategoryBar";
-import ShowUser from "../../common/showUser";
 import UserAndOrderPage from "../../common/userAndOrderScreen/userAndOrderPage";
 import Login from "../../auth/signIn/login";
 import Signup from '../../auth/signUp/signup';
+import RequestSection from "../../requsets/requsetSection";
 
 const HomePage = () => {
   return (
@@ -15,13 +15,13 @@ const HomePage = () => {
         <AdsSection />
         <CategoryBar />
         <ProductCard />
-        <ShowUser />
-        <Signup/>
-        <Login/>
+        <RequestSection />
+        {/* <Signup/>*/}
+        {/* <Login/>*/}
         <UserAndOrderPage />
       </Div>
     </>
   );
-};ShowUser
+};
 
 export default HomePage;

@@ -30,7 +30,7 @@ export const API_ENDPOINTS = {
   SERVICES: "/api/admin/services",
   CATEGORIES: "/admin/categories",
   ABOUT_US: "/admin/about_us",
-  ADS: "/admin/ads",
+  ADS: "/users/ads",
   CONTACT_US: "/admin/contact_us",
   PARTNERS: "/admin/partners",
   SIGNIN: "/auth/login/dashboard",
