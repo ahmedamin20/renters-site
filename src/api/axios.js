@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ACCESS_TOKEN } from "../utils/config/constants";
 
 const defaultAPI = axios.create({
   baseURL: "https://renter-api.ksbgarage.com",
@@ -8,7 +9,7 @@ const defaultAPI = axios.create({
 
 defaultAPI.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem(ACCESS_TOKEN);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

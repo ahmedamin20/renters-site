@@ -1,44 +1,47 @@
 import React from "react";
-import RateStar from "./rateStar";
-import MainButton from "./mianBtn";
+import RateStar from "../common/rateStar";
+import MainButton from "../common/mianBtn";
 import { Link } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
   return (
-    <Link to="/product">
-      <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg bg-itemsBgLight dark:bg-itemsBgDark shadow-md">
-        <a
-          className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-          href="#"
+    <Link to={`/product/${product.id}`} className="card">
+      <div className="relative my-2 h-[500px] flex w-48 max-w-xs flex-col overflow-hidden rounded-lg bg-itemsBgLight dark:bg-itemsBgDark shadow-md">
+        <span
+          className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-xl"
         >
           <img
             className="object-cover"
-            src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            src={product.main_image}
             alt="product image"
           />
-          <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
-            39% OFF
+          <span className="absolute top-0 left-0 m-2 rounded-full flex flex-wrap bg-black px-2 text-center text-sm font-medium text-white">
+            max:{product.maximum_days} | min: {product.minimum_days} | Health: {product.health}% | User: {product.user.name}
           </span>
-        </a>
+        </span>
         <div className="mt-4 px-5 pb-5">
           <a href="#">
             <h5 className="text-xl tracking-tight text-itemsBgDark dark:text-white">
-              Nike Air MX Super 2500 - Red
+              {product.name}
+            </h5>
+            <hr className="my-2"/>
+            <h5 className="text-sm tracking-tight text-grey dark:text-white">
+              {product.description}
             </h5>
           </a>
           <div className="mt-2 mb-5 flex items-center justify-between">
             <p>
               <span className="text-3xl font-bold text-itemsBgDark dark:text-white">
-                $449
+                ${product.price}
               </span>
               <span className="text-sm text-itemsBgDark dark:text-white line-through">
                 $699
               </span>
             </p>
+            
             <div className="flex items-center">
               <RateStar />
               <RateStar />
-
               <RateStar />
             </div>
           </div>

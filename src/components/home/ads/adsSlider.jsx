@@ -10,35 +10,12 @@ import image3 from "/src/assets/imgs/image3.jpg";
 import { useQuery } from "@tanstack/react-query";
 import { getAds } from "../../../api/queries/ads";
 
-export default function HomeSlider({ adsData }) {
-  // const ads = [
-  //   {
-  //     id: 1,
-  //     title: "title1",
-  //     description: "description1",
-  //     discount: "discount1",
-  //     image: image1,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "title2",
-  //     image: image2,
-  //     description: "description2",
-  //     discount: "discount2",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "title3",
-  //     image: image3,
-  //     description: "description3",
-  //     discount: "discount3",
-  //   },
-  // ];
+export default function HomeSlider() {
   const {data:ads} = useQuery({
     queryKey:["ads"],
     queryFn:getAds
   })
-  console.log(ads,"adsDataHere!!!!!")
+
   return (
     <div
       className="rounded-lg"

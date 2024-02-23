@@ -19,7 +19,7 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: "/product",
+          path: "/product/:id",
           element: <OneProductPage />,
         },
         {
