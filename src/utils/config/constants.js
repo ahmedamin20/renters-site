@@ -28,7 +28,7 @@ export const API_ENDPOINTS = {
   SECTIONS: "/admin/sections",
   OURTEAM: "/admin/our_team",
   SERVICES: "/api/admin/services",
-  CATEGORIES: "/admin/categories",
+  CATEGORIES: "/users/categories",
   ABOUT_US: "/admin/about_us",
   ADS: "/users/ads",
   PRODUCTS:"/client/products",

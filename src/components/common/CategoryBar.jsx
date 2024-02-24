@@ -1,4 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { API_ENDPOINTS } from "../../utils/config/constants";
+import { getCategories } from "../../api/queries/categories";
 
 const CategoryBar = () => {
   const categories = [
@@ -39,6 +42,10 @@ const CategoryBar = () => {
         "https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/RestoRewards_BrowseHome@3x.png",
     },
   ];
+  const {data} = useQuery({
+    queryKey:[API_ENDPOINTS.CATEGORIES],
+    queryFn:getCategories
+  })
   return (
     <div className="max-w-[1640px] m-auto px-4 py-12">
       <h1 className="text-black dark:text-white font-bold text-4xl text-center">
@@ -46,7 +53,7 @@ const CategoryBar = () => {
       </h1>
       {/* Categories */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
-        {categories.map((item, index) => (
+        {data?.data?.map((item, index) => (
           <div
             key={index}
             className="bg-slate-300

@@ -1,16 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { getOneProducts } from "../../../api/queries/products";
 const OneProductPage = () => {
-  const [data, setData] = useState([]);
-  const URL = "api/orders";
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       defaultAPI.get(URL).then((res) => {
-  //         setData(res.data.data);
-  //       });
-  //       // return x;
-  //     };
-  //     fetchData();
-  //   }, []);
+  const {id} = useParams()
+  const {data} = useQuery({
+    queryKey:["oneProduct",id],
+    queryFn:()=>getOneProducts(id)
+  })
 
   return (
     <section className="py-10 font-poppins dark:bg-gray-800">
@@ -19,7 +16,7 @@ const OneProductPage = () => {
           <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
             <div className="sticky top-0 overflow-hidden ">
               <div className="relative mb-6 lg:mb-10 lg:h-96">
-                <button
+                <buttonuser
                   className="absolute left-0 transform lg:ml-2 top-1/2 translate-1/2"
                   href="#"
                 >
@@ -36,11 +33,11 @@ const OneProductPage = () => {
                       d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
                     ></path>
                   </svg>
-                </button>
+                </buttonuser>
                 <img
                   className="object-contain w-full lg:h-full"
-                  src="https://i.postimg.cc/0jwyVgqz/Microprocessor1-removebg-preview.png"
-                  alt=""
+                  src={data?.data.main_image}
+                  alt="main_image"
                 />
                 <a
                   className="absolute right-0 transform lg:mr-2 top-1/2 translate-1/2"
@@ -62,65 +59,34 @@ const OneProductPage = () => {
                 </a>
               </div>
               <div className="flex-wrap hidden -mx-2 md:flex">
-                <div className="w-1/2 p-2 sm:w-1/4">
-                  <a
-                    className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300"
-                    href="#"
-                  >
-                    <img
-                      className="object-contain w-full lg:h-28"
-                      src="https://i.postimg.cc/Z5KhRkD6/download-1-removebg-preview.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div className="w-1/2 p-2 sm:w-1/4">
-                  <a
-                    className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300"
-                    href="#"
-                  >
-                    <img
-                      className="object-contain w-full lg:h-28"
-                      src="https://i.postimg.cc/8kJBrw03/download-removebg-preview.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div className="w-1/2 p-2 sm:w-1/4">
-                  <a
-                    className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300"
-                    href="#"
-                  >
-                    <img
-                      className="object-contain w-full lg:h-28"
-                      src="https://i.postimg.cc/0jwyVgqz/Microprocessor1-removebg-preview.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div className="w-1/2 p-2 sm:w-1/4">
-                  <a
-                    className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300"
-                    href="#"
-                  >
-                    <img
-                      className="object-contain w-full lg:h-28"
-                      src="https://i.postimg.cc/0N4Kk1PN/black-microprocessors-removebg-preview.png"
-                      alt=""
-                    />
-                  </a>
-                </div>
+              {data?.data?.other_images?.map(item=>(
+
+                <div className="w-1/2 p-2 sm:w-1/4" key={item?.id}>
+                    <a
+                      className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300"
+                      href="#"
+                    >
+                      <img
+                        className="object-contain w-full lg:h-28"
+                        src={item?.url}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+              ))}  
+                
               </div>
             </div>
           </div>
           <div className="w-full px-4 md:w-1/2">
             <div className="lg:pl-20">
               <div className="mb-6 ">
-                <span className="px-2.5 py-0.5 text-xs text-blue-600 bg-blue-100 dark:bg-gray-700 rounded-xl dark:text-gray-200">
-                  New Arrival
+                <span className="p-3 text-xs text-blue-600 bg-blue-100 dark:bg-gray-700 rounded-xl dark:text-gray-200">
+                  <span className="font-bold text-xl">Rang: <span className="text-red m-1 text-lg">Min|</span>{data?.data.minimum_days} , <span className="text-green m-1 text-lg">Max|</span>{data?.data.maximum_days}</span>
                 </span>
                 <h2 className="max-w-xl mt-6 mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
-                  Intel® Core™ i5-12600HX Processor (18M Cache, up to 4.60 GHz)
+                  {/* Intel® Core™ i5-12600HX Processor (18M Cache, up to 4.60 GHz)*/}
+                  {data?.data?.name}
                 </h2>
                 <div className="flex flex-wrap items-center mb-6">
                   <ul className="flex mb-4 mr-2 lg:mb-0">
@@ -189,98 +155,34 @@ const OneProductPage = () => {
                   </a>
                 </div>
                 <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
-                  <span>Rs.7,000.00</span>
-                  <span className="ml-3 text-base font-normal text-gray-500 line-through dark:text-gray-400">
-                    Rs.10,000.00
+                  <span>{data?.data.price}</span>
+                  <span className="ml-3 text-base font-normal text-gray-500  dark:text-gray-400">
+                    /day
                   </span>
                 </p>
               </div>
               <div className="mb-6">
                 <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">
-                  System Specs :
+                Description
                 </h2>
                 <div className="bg-gray-100 dark:bg-gray-700 rounded-xl">
                   <div className="p-3 lg:p-5 ">
                     <div className="p-2 rounded-xl lg:p-6 dark:bg-gray-800 bg-gray-50">
-                      <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
-                        <div className="w-full mb-4 md:w-2/5">
+                      <div className="flex w-full flex-wrap justify-center gap-x-2 gap-y-4">
+              {/*<div className="w-full mb-4 md:w-2/5">*/}
+              <div className="w-full mb-4">
                           <div className="flex ">
-                            <span className="mr-3 text-gray-500 dark:text-gray-400">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-diagram-3 w-7 h-7"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM0 11.5A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"
-                                ></path>
-                              </svg>
-                            </span>
-                            <div>
-                              <p className="mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                No. of cores
-                              </p>
-                              <h2 className="text-base font-semibold text-gray-700 dark:text-gray-400">
-                                12 Cores
-                              </h2>
+                            
+                            <div className="w-full">
+                              <span className="mb-2 w-full text-pretty text-lg font-medium text-gray-500 dark:text-gray-400">
+                                {data?.data?.description}
+                              </span>
+                              
                             </div>
                           </div>
                         </div>
-                        <div className="w-full mb-4 md:w-2/5">
-                          <div className="flex ">
-                            <span className="mr-3 text-gray-500 dark:text-gray-400">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-gpu-card w-7 h-7"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M4 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7.5-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .5.5V4h13.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H2v2.5a.5.5 0 0 1-1 0V2H.5a.5.5 0 0 1-.5-.5Zm5.5 4a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM9 8a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"></path>
-                                <path d="M3 12.5h3.5v1a.5.5 0 0 1-.5.5H3.5a.5.5 0 0 1-.5-.5v-1Zm4 1v-1h4v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5Z"></path>
-                              </svg>
-                            </span>
-                            <div>
-                              <p className="mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                Graphic
-                              </p>
-                              <h2 className="text-base font-semibold text-gray-700 dark:text-gray-400">
-                                Intel UHD
-                              </h2>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="w-full mb-4 lg:mb-0 md:w-2/5">
-                          <div className="flex ">
-                            <span className="mr-3 text-gray-500 dark:text-gray-400">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="w-7 h-7 bi bi-cpu"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
-                              </svg>
-                            </span>
-                            <div>
-                              <p className="mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                Processor
-                              </p>
-                              <h2 className="text-base font-semibold text-gray-700 dark:text-gray-400">
-                                INTEL 80486
-                              </h2>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="w-full mb-4 lg:mb-0 md:w-2/5">
+                        
+                        {/*<div className="w-full mb-4 lg:mb-0 md:w-2/5">
                           <div className="flex ">
                             <span className="mr-3 text-gray-500 dark:text-gray-400">
                               <svg
@@ -305,20 +207,18 @@ const OneProductPage = () => {
                               </h2>
                             </div>
                           </div>
-                        </div>
+              </div>*/}
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="py-6 mb-6 border-t border-b border-gray-200 dark:border-gray-700">
-                <span className="text-base text-gray-600 dark:text-gray-400">
-                  In Stock
-                </span>
+                
                 <p className="mt-2 text-sm text-blue-500 dark:text-blue-200">
-                  Ships from china.
-                  <span className="text-gray-600 dark:text-gray-400">
-                    Most customers receive within 3-31 days.
+                  Product Health |  
+                  <span className="text-gray-600 mx-1 dark:text-gray-400">
+                    {data?.data.health}
                   </span>
                 </p>
               </div>
