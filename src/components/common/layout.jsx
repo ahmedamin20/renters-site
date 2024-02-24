@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import Navbar from "../home/nav";
 import Footer from "../home/footer";
 import { Outlet } from "react-router-dom";
 import withGuard from '../../utils/with_guard';

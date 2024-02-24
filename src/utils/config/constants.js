@@ -25,7 +25,7 @@ export const LOCALES = ["en", "ar"];
 
 export const API_ENDPOINTS = {
   BLOGS: "/admin/blogs",
-  SECTIONS: "/admin/sections",
+  SETTINGS: "/users/settings",
   OURTEAM: "/admin/our_team",
   SERVICES: "/api/admin/services",
   CATEGORIES: "/users/categories",
