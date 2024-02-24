@@ -218,7 +218,7 @@ const OneProductPage = () => {
                 <p className="mt-2 text-sm text-blue-500 dark:text-blue-200">
                   Product Health |  
                   <span className="text-gray-600 mx-1 dark:text-gray-400">
-                    {data?.data.health}
+                    {data?.data.health}%
                   </span>
                 </p>
               </div>
