@@ -13,19 +13,19 @@ import {
 import TextHead from "../../common/headText";
 import TextInput from "../../common/textInput";
 import PasswordInput from "../../common/passwordInput";
-import Card from "../../common/Card";
 
 export default function ProfilePageComponent() {
-  const [profileImage, setProfileImage] = useState();
 
   const [imageUpdated, setImageUpdated] = useState(false);
   const profileFormRef = useRef(null);
   const passWordRef = useRef(null);
   const { data } = useQuery({
     queryKey: [API_ENDPOINTS.PROFILE],
-    queryFn: () => getProfile(),
+    queryFn:  getProfile,
   });
+  const [profileImage, setProfileImage] = useState(data?.data.avatar);
 
+  console.log(data,"profile")
   const { mutate, isPending } = useMutation({
     mutationFn: updateProfile,
     onSuccess: () => getProfile(),
@@ -79,16 +79,16 @@ export default function ProfilePageComponent() {
             height={100}
           />
           <TextInput
-            label="profile.name"
-            placeholder="profile.name"
+            label="name"
+            placeholder="name"
             type="text"
             name="name"
             defaultValue={data?.data?.name}
             required={true}
           />
           <TextInput
-            label="profile.email"
-            placeholder="profile.email"
+            label="email"
+            placeholder="email"
             type="text"
             name="email"
             defaultValue={data?.data?.email}
@@ -115,20 +115,20 @@ export default function ProfilePageComponent() {
           <PasswordInput
             name="password"
             required={true}
-            placeholder="profile.old_password"
-            label="profile.old_password"
+            placeholder="old_password"
+            label="old_password"
           />
           <PasswordInput
             name="new_password"
             required={true}
-            placeholder="profile.new_password"
-            label="profile.new_password"
+            placeholder="new_password"
+            label="new_password"
           />
           <PasswordInput
             name="new_password_confirmation"
             required={true}
-            placeholder="profile.new_password_confirmation"
-            label="profile.new_password_confirmation"
+            placeholder="new_password_confirmation"
+            label="new_password_confirmation"
           />
         </div>
         <MainButton
