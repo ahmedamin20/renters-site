@@ -7,7 +7,6 @@ export default function MainButton({
   type,
   disabled,
   loading,
-  buttonClassName,
   isLoading,
   onClick,
 }) {

@@ -43,9 +43,13 @@ export default function ProfilePageComponent() {
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
-    passwordUpdate(passWordRef.current);
+    const formData = new FormData(passWordRef.current);
+    const formObject = Object.fromEntries(formData.entries());
+    passwordUpdate(formObject);
   };
+  console.log(data,"profileData")
   return (
+    data?.data&&
     <Div className="flex flex-col  justify-center items-center px-[5px] py-10 w-full">
       <form
         ref={profileFormRef}
@@ -79,17 +83,17 @@ export default function ProfilePageComponent() {
             height={100}
           />
           <TextInput
-            label="name"
-            placeholder="name"
+            label="Name"
+            placeholder="Name"
             type="text"
             name="name"
             defaultValue={data?.data?.name}
             required={true}
           />
           <TextInput
-            label="email"
-            placeholder="email"
-            type="text"
+            label="Email"
+            placeholder="Email"
+            type="email"
             name="email"
             defaultValue={data?.data?.email}
             required={true}
@@ -109,26 +113,26 @@ export default function ProfilePageComponent() {
         onSubmit={handlePasswordSubmit}
       >
         <TextHead>
-          <span>profile.passwordHead</span>
+          <span>passwordHead</span>
         </TextHead>
         <div className="form-wrapper">
           <PasswordInput
-            name="password"
+            name="old_password"
             required={true}
-            placeholder="old_password"
-            label="old_password"
+            placeholder="Old Password"
+            label="Old Password"
           />
           <PasswordInput
-            name="new_password"
+            name="New Password"
             required={true}
-            placeholder="new_password"
-            label="new_password"
+            placeholder="New Password"
+            label="New Password"
           />
           <PasswordInput
-            name="new_password_confirmation"
+            name="New Password Confirmation"
             required={true}
-            placeholder="new_password_confirmation"
-            label="new_password_confirmation"
+            placeholder="New Password Confirmation"
+            label="New Password Confirmation"
           />
         </div>
         <MainButton

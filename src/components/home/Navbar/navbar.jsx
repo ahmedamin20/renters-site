@@ -6,10 +6,22 @@ import NavCTA from './navBarCTA';
 import NavLinksWrapper from './navLinkWrapper';
 import NavMenuToggle from "./navbarMenuToggle";
 import { Link } from "react-router-dom";
+import { API_ENDPOINTS } from "../../../utils/config/constants";
+import { getProfile } from '../../../api/queries/profile';
+import { useQuery } from "@tanstack/react-query";
+import Spinner from "../../spinner";
+import ProfileLink from '../profile/profileLink';
+import Logout from "../../auth/logout";
 
 export default function NewNavbar() {
   const [navOpen, setNavOpen] = useState(false);
   const {theme} = useTheme()
+  const [profile, setProfile] = useState(false);
+
+  const { data, isLoading } = useQuery({
+    queryKey: [API_ENDPOINTS.PROFILE],
+    queryFn: () => getProfile()
+  })
   return (
     <header className={`dark:bg-foreground/50 h-20 flex items-center backdrop-blur-md !sticky top-0 z-50`}>
       <div className="flex font-cairo items-center px-3 py-5 container mx-auto justify-between relative">
@@ -21,23 +33,39 @@ export default function NewNavbar() {
         <NavCTA />
         <NavMenu visible={navOpen} setNavOpen={setNavOpen} />
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <Link to="profile">
-          <button
-            type="button"
-            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-            id="user-menu-button"
-            aria-expanded="false"
-            data-dropdown-toggle="user-dropdown"
-            data-dropdown-placement="bottom"
-          >
-            <span className="sr-only">Open user menu</span>
+        <div className="flex relative">
+
+          {isLoading ?
+            <Spinner />
+            :
             <img
-              className="w-[80px] h-[80px] rounded-full"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-              alt="user photo"
-            />
-          </button>
-        </Link>
+              className="cursor-pointer  rounded-full"
+              onClick={() => {
+                setProfile(!profile);
+              }}
+              width={30}
+              height={30}
+              alt=""
+              src={data?.data?.avatar}
+            />}
+
+          {profile && (
+            <div
+              className="flex flex-col gap-[15px] shadow-lg absolute top-9 right-2 w-[250px] h-auto text-white dark:text-darkGrey bg-secondary dark:bg-darkPrimary p-[15px] rounded-xl"
+              onClick={() => {
+                setProfile(!profile);
+              }}
+
+            >
+              <ProfileLink image={data?.data?.avatar} name={profile.head} email={data?.data?.email} />
+              {/*<Link href={`/${locale}/${Cookies.get(TYPE) == ADMIN ? 'admin' : 'store'}/wallet`} className="flex items-center gap-[10px]">
+                <CiWallet size={ICONS_SIZE} />
+                <p>{t('navbar.wallet')}</p>
+              </Link>*/}
+              <Logout />
+            </div>
+          )}
+        </div>
         {/*<div
           className="z-50 hidden text-base list-none divide-y divide-gray-100 rounded-lg shadow  dark:divide-gray-600"
           id="user-dropdown"

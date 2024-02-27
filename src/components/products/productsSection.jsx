@@ -9,11 +9,11 @@ const ProductsSection = () => {
     queryKey: [API_ENDPOINTS.PRODUCTS],
     queryFn: getAllProducts,
   });
-  console.log(data,"allProductData")
+
   return (
     <div className="flex justify-evenly flex-wrap w-full">
       {data?.data.map((item) => (
-        <div className="w-52">
+        <div className="w-[25%] sm:w-[75%] md:w-[45%] lg:w-[25%]">
           <ProductCard key={item.id} product={item} />
         </div>
       ))}

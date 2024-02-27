@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ProductCard = ({product}) => {
   return (
     <Link to={`/product/${product.id}`} className="card">
-      <div className="relative my-2 h-[500px] flex w-48 max-w-xs flex-col overflow-hidden rounded-lg bg-itemsBgLight dark:bg-itemsBgDark shadow-md">
+      <div className="relative mx-6 my-2 h-[500px] flex  flex-col overflow-hidden rounded-lg bg-itemsBgLight dark:bg-itemsBgDark shadow-md">
         <span
           className="relative mx-2 mt-2 flex h-60 overflow-hidden rounded-xl"
         >
