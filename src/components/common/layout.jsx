@@ -4,8 +4,10 @@ import Footer from "../home/footer";
 import { Outlet } from "react-router-dom";
 import withGuard from '../../utils/with_guard';
 import NewNavbar from "../home/Navbar/navbar";
+import { axiosInterceptor } from "../../../axiosInterseptor";
 
 const  Wrapper = () => {
+  axiosInterceptor()
   return (
     <>
       <div className="flex flex-row gap-[35px] font-medium  w-full ltr:pr-[25px] rtl:pl-[25px] ">

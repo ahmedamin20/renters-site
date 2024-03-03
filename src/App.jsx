@@ -9,6 +9,7 @@ import ProfilePageComponent from "./components/home/profile/profilePage";
 import Signup from "./components/auth/signUp/signup";
 import RequestSection from "./components/requsets/requsetSection";
 import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrderPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const routes = createBrowserRouter([
@@ -48,6 +49,7 @@ function App() {
     <div style={{ width: "100%" }}>
       <ReactQueryProvider>
         <ThemeProvider>
+          <Toaster position="top-center"/>
           <RouterProvider router={routes} />
         </ThemeProvider>
       </ReactQueryProvider>

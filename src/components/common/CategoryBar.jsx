@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { API_ENDPOINTS } from "../../utils/config/constants";
 import { getCategories } from "../../api/queries/categories";
+import toast from "react-hot-toast";
 
 const CategoryBar = () => {
   const categories = [

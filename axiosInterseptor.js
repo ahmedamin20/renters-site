@@ -1,5 +1,5 @@
 import { toast } from "react-hot-toast";
-import defaultAPI from "./axiosInstance";
+import defaultAPI from './src/api/axios';
 
 export const axiosInterceptor = () => {
   const VALIDATION_ERRORS_RESPONSE = 422,

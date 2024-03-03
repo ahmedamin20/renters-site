@@ -9,7 +9,6 @@ const ProductsSection = () => {
     queryKey: [API_ENDPOINTS.PRODUCTS],
     queryFn: getAllProducts,
   });
-
   return (
     <div className="flex justify-evenly flex-wrap w-full">
       {data?.data.map((item) => (
