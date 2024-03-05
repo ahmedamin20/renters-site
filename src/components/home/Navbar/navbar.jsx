@@ -4,8 +4,7 @@ import { useTheme } from "../../../utils/providers/theme";
 import Logo from "./logo";
 import NavCTA from './navBarCTA';
 import NavLinksWrapper from './navLinkWrapper';
-import NavMenuToggle from "./navbarMenuToggle";
-import { Link } from "react-router-dom";
+
 import { API_ENDPOINTS } from "../../../utils/config/constants";
 import { getProfile } from '../../../api/queries/profile';
 import { useQuery } from "@tanstack/react-query";

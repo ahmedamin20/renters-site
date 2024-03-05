@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import withGuard from '../../utils/with_guard';
 import NewNavbar from "../home/Navbar/navbar";
 import { axiosInterceptor } from "../../../axiosInterseptor";
+// import Header from "../home/testHeader/header";
 
 const  Wrapper = () => {
   axiosInterceptor()

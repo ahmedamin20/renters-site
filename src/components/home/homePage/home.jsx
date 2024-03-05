@@ -5,13 +5,14 @@ import CategoryBar from "../../common/CategoryBar";
 import UserAndOrderPage from "../../common/userAndOrderScreen/userAndOrderPage";
 import RequestSection from "../../requsets/requsetSection";
 import ProductsSection from "../../products/productsSection";
+import CtegoriesSection from "../../categories/categoriesSection";
 
 const HomePage = () => {
   return (
     <>
       <Div>
         <AdsSection />
-        <CategoryBar />
+        <CtegoriesSection />
         <ProductsSection />
         <RequestSection />
         <UserAndOrderPage />

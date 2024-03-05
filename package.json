@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ionic/react": "^7.7.3",
     "@tanstack/react-query": "^5.18.1",
     "@tanstack/react-query-devtools": "^5.18.1",
     "axios": "^1.6.7",
