@@ -1403,7 +1403,7 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: var(--border-radius-md);
   overflow: hidden;
   transition: var(--transition-timing);
-  height: 200px;
+  height: 280px !important;
 }
 
 .product-grid .showcase:hover {

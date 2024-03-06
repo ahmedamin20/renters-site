@@ -15,8 +15,13 @@ function PasswordInput({
   const [type, setType] = useState("password");
   return (
     <div className="flex flex-col gap-[5px]">
-      {label && <label className=" text-[16px] font-medium">{label}</label>}
-      <div className=" relative">
+    {label && (
+      <label className="text-[16px] font-bold text-start" htmlFor={name}>
+        {label}
+        {required && <span className="text-red"> *</span>}
+      </label>
+    )}
+    <div className=" relative">
         <input
           {...rest}
           value={value}

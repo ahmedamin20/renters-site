@@ -16,9 +16,10 @@ export default function Logout() {
     logoutMutation.mutate();
     localStorage.clear();
     router("/");
+    window.location.reload()
   };
   return (
-    <MainButton onClick={handleLogout} className=" text-red flex items-center gap-[10px] p-0">
+    <MainButton onClick={handleLogout} className=" text-red flex items-center gap-[10px] bg-transparent shadow-md p-0">
       <IoMdLogOut size={ICONS_SIZE} />
       Logout
     </MainButton>

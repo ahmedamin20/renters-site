@@ -14,7 +14,7 @@ export default function NavLink({
   props.className += className;
 
   return (
-    <Link href={href} {...props}>
+    <Link to={href} {...props}>
       {children}
     </Link>
   );

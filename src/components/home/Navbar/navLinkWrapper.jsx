@@ -2,11 +2,11 @@ import NavLink from "./navLink";
 
 export default function NavLinksWrapper() {
   const navLinks = [
-    {href:"/",content:"Home"},
-    {href:"/",content:"About"},
-    {href:"/",content:"Services"},
-    {href:"/",content:"Products"},
-    {href:"/",content:"Contact"},
+    {href:"/home",content:"Home"},
+    {href:"/home",content:"About"},
+    // {href:"/home",content:"Services"},
+    {href:"/home",content:"Products"},
+    {href:"/home",content:"Contact"},
 ]
   return (
     <nav

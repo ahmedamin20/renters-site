@@ -10,6 +10,8 @@ import Signup from "./components/auth/signUp/signup";
 import RequestSection from "./components/requsets/requsetSection";
 import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrderPage";
 import { Toaster } from "react-hot-toast";
+import ProductForm from "./components/products/productForm";
+import SignupForm from "./components/auth/signUp/signupForm";
 
 function App() {
   const routes = createBrowserRouter([
@@ -30,6 +32,10 @@ function App() {
           element: <ProfilePageComponent />,
         },
         {
+          path: "/productForm",
+          element: <ProductForm />,
+        },
+        {
           path: "/requests",
           element: <RequestSection />,
         },
@@ -41,7 +47,7 @@ function App() {
     },
     {
       path: "/signup",
-      element: <Signup />,
+      element: <SignupForm />,
     }
   ]);
 

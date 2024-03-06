@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BestSeatcion = ({product1,product2}) => {
-    console.table(product1)
     return (
     <div className="product-featured m-4">
       <h2 className="title">Top Rented</h2>
