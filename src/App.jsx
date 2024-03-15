@@ -52,14 +52,14 @@ function App() {
   ]);
 
   return (
-    <div style={{ width: "100%" }}>
+    // <div style={{ width: "100%" }}>
       <ReactQueryProvider>
         <ThemeProvider>
           <Toaster position="top-center"/>
           <RouterProvider router={routes} />
         </ThemeProvider>
       </ReactQueryProvider>
-    </div>
+    // </div>
   );
 }
 

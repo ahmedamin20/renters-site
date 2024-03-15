@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { BsEyeSlash } from "react-icons/bs";
 import { BsEye } from "react-icons/bs";

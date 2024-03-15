@@ -29,7 +29,9 @@ const ProductForm = () => {
         formData.append("main_image",sendImg)
         defaultAPI.post(API_ENDPOINTS.PRODUCTS,formData)
     }
+    console.log(categoriesMenu,"categoriesMenu")
     return (
+        
     <Card>
     <form ref={formRef} onSubmit={handleSubmit} encType="multipart/form-data">
       <TextInput label={"name"}  name={"name"} placeholder={"Product Name"} />

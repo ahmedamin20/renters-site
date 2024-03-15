@@ -134,7 +134,7 @@ function SignUpForm() {
             <PasswordInput placeholder='******' name='password_confirmation' required={true} label='Password Confirmation' />
 
             <MainButton isLoading={isPending} type='submit' className='w-full '>
-                signin
+                signup
             </MainButton>
         </form>
     )

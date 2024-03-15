@@ -34,8 +34,8 @@ function SigninForm() {
     
     return (
         <form ref={formRef} onSubmit={onSubmit} className='flex flex-col gap-[10px]'>
-            <TextInput value="user@admin.com" placeholder='Email' name='email' type='email' required={true} label='Email' />
-            <PasswordInput value={"user"} placeholder='******' name='password' required={true} label='Password' />
+            <TextInput placeholder='Email' name='email' type='email' required={true} label='Email' />
+            <PasswordInput  placeholder='******' name='password' required={true} label='Password' />
             <MainButton isLoading={isPending} type='submit' className='w-full '>
                 signin
             </MainButton>

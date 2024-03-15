@@ -1,12 +1,11 @@
-import React from 'react'
-import { cn } from '../../utils/cn'
+import { cn } from "../../utils/cn";
 
 function FormContainer({ className, children }) {
     return (
-        <div className={cn('flex flex-col justify-center gap-[20px]  p-[25px] dark:bg-darkPrimary bg-white md:w-[40%] m-auto md:mt-[6%] rounded-lg shadow-md', className)}>
+        <div  className="bg-white opacity-95 rounded shadow overflow-hidden w-[50%] md:w-[50%] sm:w-[90%] h-[60%] mt-20 mx-auto p-4 relative">
             {children}
         </div>
-    )
+    );
 }
 
-export default FormContainer
+export default FormContainer;
