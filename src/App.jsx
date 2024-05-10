@@ -12,6 +12,9 @@ import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrde
 import { Toaster } from "react-hot-toast";
 import ProductForm from "./components/products/productForm";
 import SignupForm from "./components/auth/signUp/signupForm";
+import ProfileForm from "./components/home/profile/profileForm";
+import { ROUTE } from "./utils/config/constantRoutes";
+import PasswordForm from "./components/home/profile/passwordForm";
 
 function App() {
   const routes = createBrowserRouter([
@@ -30,6 +33,16 @@ function App() {
         {
           path: "/profile",
           element: <ProfilePageComponent />,
+          children:[
+            {
+              path: ROUTE.PROFILE_ROUTE.PROFILE,
+              element: <ProfileForm />,
+            },
+            {
+              path: ROUTE.PROFILE_ROUTE.CHANGE_PASSWORD,
+              element: <PasswordForm />,
+            }
+          ]
         },
         {
           path: "/productForm",

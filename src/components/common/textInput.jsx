@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { cn } from "../../utils/cn";
 
 
 function TextInput({
@@ -16,6 +17,7 @@ function TextInput({
   onClick,
   disabled,
   multiple,
+  ref
 }) {
   const hiddenFileInput = useRef(null);
 
@@ -30,7 +32,7 @@ function TextInput({
   return (
     <div className="flex flex-col gap-[5px] my-2">
       {label && (
-        <label className="text-[16px] font-bold text-start" htmlFor={name}>
+        <label className="before:content[' '] before:border-2 before:border-gray-400 text-[16px] font-bold text-start" htmlFor={name}>
           {placeholder || label}
           {required && <span className="text-red"> *</span>}
         </label>
@@ -60,7 +62,7 @@ function TextInput({
             min={type === "number" && 0}
             name={name}
             placeholder={placeholder}
-            className={`bg-white text-left dark:bg-darkPrimary  dark:border-darkGrey font-bold text-[16px] w-full  ${
+            className={`bg-white text-left dark:bg-darkPrimary  dark:border-darkGrey font-bold text-[16px]  ${
               icon ? "py-[12px] px-[30px]" : "p-[12px]"
             } border rounded-md focus:ring-0 dark:focus:ring-0 dark:focus:outline-darkPrimary   focus:outline-primary ${className}`}
           />
@@ -68,21 +70,20 @@ function TextInput({
           <div>
             <button
               type="button"
-              className={`border rounded-lg p-[13px] w-full text-left`}
-              onClick={handleClick}
+              className={`border rounded-lg p-[13px] text-left`}
             >
-              <h1 className="rounded-md border p-[5px] w-fit dark:border-grey">
+              <h1 className={cn("rounded-md border p-[5px] w-fit dark:border-grey", className)}>
                 {"chooseFile"}
               </h1>
             </button>
             <input
+              ref={ref}
               type="file"
               onChange={(e) => {
                 if (onChange) {
                   onChange(e);
                 }
               }}
-              ref={hiddenFileInput}
               style={{ display: "none" }}
               multiple={multiple}
             />

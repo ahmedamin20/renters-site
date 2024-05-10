@@ -16,15 +16,14 @@ export default function MainButton({
       disabled={disabled || isLoading}
       onClick={onClick}
       className={cn(
-        " dark:bg-darkPrimary dark:shadow-md bg-primary font-medium w-fit  text-white dark:text-darkGrey rounded-lg p-[8px] text-[18px]",
+        "group dark:bg-darkPrimary dark:shadow-md border border-red  bg-primary hover:bg-transparent transition-all hover:text-black font-medium w-fit  text-white dark:text-darkGrey rounded-lg p-[8px] text-[18px]",
         className
       )}
     >
       {isLoading ? (
         <div className="flex items-center gap-[5px] justify-center mx-auto">
-          <div className="animate-spin rounded-full h-[32px] w-[32px] border-b-2 border-white  dark:border-primary"></div>
+          <div className="animate-spin rounded-full h-[20px] w-[20px] border-b-2 group-hover:border-black border-white  dark:border-primary"></div>
 
-          {"loading"}
         </div>
       ) : (
         children

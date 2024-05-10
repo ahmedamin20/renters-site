@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -26,5 +28,16 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [],
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.btnHover': {
+          'border': '1px sold blue',
+          "background":"transparent"
+          
+        },
+        
+      })
+    })
+  ]
 };
