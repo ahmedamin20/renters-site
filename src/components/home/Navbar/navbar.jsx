@@ -10,6 +10,7 @@ import Logout from "../../auth/logout";
 import Spinner from "../../spinner";
 import ProfileLink from "../profile/profileLink";
 import ProfileItem from "./profileItems";
+import ProfileMenu from "./profileMenu";
 
 export default function NewNavbar() {
   const [navOpen, setNavOpen] = useState(false);
@@ -26,47 +27,52 @@ export default function NewNavbar() {
     >
       <div className="flex !w-[85%] font-cairo items-center px-3 py-5 container !mx-auto justify-between relative">
         <div className="flex items-center gap-2 sm:gap-0">
-          {/*<NavMenuToggle navOpen={navOpen} setNavOpen={setNavOpen} />*/}
           <Logo />
         </div>
         <NavLinksWrapper />
         <NavCTA />
         <NavMenu visible={navOpen} setNavOpen={setNavOpen} />
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <div className="flex relative">
-            {isLoading ? (
-              <Spinner />
-            ) : (
-              <img
-                className="cursor-pointer rounded-full"
-                onClick={() => {
-                  setProfile(!profile);
-                }}
-                width={50}
-                height={50}
-                alt=""
-                src={data?.data?.avatar}
-              />
-            )}
-
-            {profile && (
-              <div
-                className="flex flex-col justify-center gap-[15px] shadow-lg absolute top-9 right-2 w-[250px] h-auto text-black dark:text-darkGrey bg-white dark:bg-darkPrimary p-[15px] rounded-xl"
-                onClick={() => {
-                  setProfile(!profile);
-                }}
-              >
-                <ProfileLink
-                  image={data?.data?.avatar}
-                  name={data?.data?.name}
-                  email={data?.data?.email}
-                />
-                <ProfileItem title="Add Your Product" path="/productForm"/>
-                <Logout />
-              </div>
-            )}
+        {/*----------------profile------------*/}
+          <div className="w-[50px] h-[50px] flex justify-center flex-col bg-red rounded-full">
+            <div onClick={()=>setProfile(!profile)} className="w-full h-full flex justify-center rounded-full">
+              <img src={data?.data?.avatar} className="object-cover w-full h-full rounded-full"/>
+            </div>
           </div>
-          {/*<div
+          <ProfileMenu profile={profile} data={data} setProfile={setProfile}/>
+          {/*----------------responsive------------*/}
+          <button
+            data-collapse-toggle="navbar-user"
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-user"
+            aria-expanded="false"
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+
+{/*<div
           className="z-50 hidden text-base list-none divide-y divide-gray-100 rounded-lg shadow  dark:divide-gray-600"
           id="user-dropdown"
           >
@@ -113,32 +119,3 @@ export default function NewNavbar() {
             </li>
           </ul>
 </div>*/}
-          <button
-            data-collapse-toggle="navbar-user"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-user"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-  );
-}

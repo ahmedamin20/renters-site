@@ -18,7 +18,7 @@ const ProductForm = () => {
         queryKey:[API_ENDPOINTS.CATEGORIES],
         queryFn:()=>getCategories()
     })
-    const menuData = categoriesMenu?.data?.map(item=>({name:item?.name,id:item?.id}))
+    const menuData = categoriesMenu?.data?.map(item=>({ name: item?.name, id: item?.id }))
     const handleImageChange =(e)=>{
         setImg(URL.createObjectURL(e.target.files[0]))
         setSendImage(e?.target.files[0])
@@ -27,13 +27,10 @@ const ProductForm = () => {
         e.preventDefault()
         const formData = new FormData(formRef.current);
         formData.append("main_image",sendImg)
-        defaultAPI.post(API_ENDPOINTS.PRODUCTS,formData)
+        defaultAPI.post(API_ENDPOINTS.PRODUCTS, formData)
     }
-    console.log(categoriesMenu,"categoriesMenu")
     return (
-        
-    <Card>
-    <form ref={formRef} className='grid grid-cols-1 gap-[15px] lg:grid-cols-2 p-4' onSubmit={handleSubmit} encType="multipart/form-data">
+    <form ref={formRef} className='grid grid-cols-1 gap-[15px] lg:grid-cols-2 p-[3rem]' onSubmit={handleSubmit} encType="multipart/form-data">
       <TextInput label={"name"}  name={"name"} placeholder={"Product Name"} />
       <TextInput  label={"description"} name={"description"} placeholder={"Description"} />
       <TextInput label={"price"} name={"price"} placeholder={"Price"} type='number'/>
@@ -56,7 +53,6 @@ const ProductForm = () => {
             </div>
             <MainButton className="my-5" type={"submit"}>Add Product</MainButton>
             </form>
-    </Card>
   ) 
 }
 

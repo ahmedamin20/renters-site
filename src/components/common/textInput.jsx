@@ -31,11 +31,11 @@ function TextInput({
     <div className="flex flex-col gap-[5px] my-2">
       {label && (
         <label className="text-[16px] font-bold text-start" htmlFor={name}>
-          {label}
+          {placeholder || label}
           {required && <span className="text-red"> *</span>}
         </label>
       )}
-      <div className="relative">
+      <div className="">
         {type !== "file" ? (
           <input
             disabled={disabled}
@@ -50,7 +50,7 @@ function TextInput({
             //   F.currentTarget.setCustomValidity(
             //     `${
             //       locale == "ar"
-            //         ? "هذا الحقل مطلوب"
+             //         ? "هذا الحقل مطلوب"
             //         : "This field is required"
             //     }`
             //   )
@@ -68,7 +68,7 @@ function TextInput({
           <div>
             <button
               type="button"
-              className={`border rounded-lg p-[13px] w-full "text-left`}
+              className={`border rounded-lg p-[13px] w-full text-left`}
               onClick={handleClick}
             >
               <h1 className="rounded-md border p-[5px] w-fit dark:border-grey">
