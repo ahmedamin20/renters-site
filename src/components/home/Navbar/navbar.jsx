@@ -1,22 +1,18 @@
 import { useState } from "react";
-import NavMenu from "./navbarMenu";
-import { useTheme } from "../../../utils/providers/theme";
 import Logo from "./logo";
 import NavCTA from "./navBarCTA";
 import NavLinksWrapper from "./navLinkWrapper";
-
-import { API_ENDPOINTS } from "../../../utils/config/constants";
-import { getProfile } from "../../../api/queries/profile";
+import NavMenu from "./navbarMenu";
 import { useQuery } from "@tanstack/react-query";
+import { getProfile } from "../../../api/queries/profile";
+import { API_ENDPOINTS } from "../../../utils/config/constants";
+import Logout from "../../auth/logout";
 import Spinner from "../../spinner";
 import ProfileLink from "../profile/profileLink";
-import Logout from "../../auth/logout";
-import { Link } from "react-router-dom";
 import ProfileItem from "./profileItems";
 
 export default function NewNavbar() {
   const [navOpen, setNavOpen] = useState(false);
-  const { theme } = useTheme();
   const [profile, setProfile] = useState(false);
 
   const { data, isLoading } = useQuery({
@@ -26,9 +22,9 @@ export default function NewNavbar() {
   console.log(data, "proffffff");
   return (
     <header
-      className={`dark:bg-foreground/50 h-20 flex items-center backdrop-blur-md !sticky top-0 z-50`}
+      className={`h-full w-full bg-blue-400 shadow-lg bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30`}
     >
-      <div className="flex font-cairo items-center px-3 py-5 container mx-auto justify-between relative">
+      <div className="flex !w-[85%] font-cairo items-center px-3 py-5 container !mx-auto justify-between relative">
         <div className="flex items-center gap-2 sm:gap-0">
           {/*<NavMenuToggle navOpen={navOpen} setNavOpen={setNavOpen} />*/}
           <Logo />

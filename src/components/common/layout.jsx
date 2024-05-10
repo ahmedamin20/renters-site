@@ -11,14 +11,11 @@ const  Wrapper = () => {
   axiosInterceptor()
   return (
     <>
-      <div className="flex flex-row gap-[35px] font-medium  w-full ltr:pr-[25px] rtl:pl-[25px] ">
+      <div className="flex flex-row font-medium  w-full ltr:pr-[25px] rtl:pl-[25px] ">
         <main
-          className={` h-full w-full overflow-x-hidden flex flex-col gap-[35px] pb-[50px]`}
+          className={` h-full w-full overflow-x-hidden flex flex-col pb-[50px]`}
         >
-  {/* 
-
-  <Navbar />
-*/}          <NewNavbar/>
+         <NewNavbar/>
           <Outlet />
           <ReactQueryDevtools initialIsOpen={false} />
         </main>

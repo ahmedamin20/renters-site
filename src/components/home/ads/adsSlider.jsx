@@ -19,18 +19,18 @@ export default function HomeSlider() {
   return (
     <div
       className="rounded-lg"
-      style={{ display: "flex", justifyContent: "center", width: "100%" }}
+      style={{ display: "flex", justifyContent: "center", width: "100dvw",height:"100dvh" }}
     >
       <Swiper
         autoplay={{
-          delay: 5000,
+          delay: 2000,
         }}
         slidesPerView={1}
         // navigation
         modules={[Navigation, Autoplay, Pagination]}
         loop
         color="red"
-        className="h-[90vh]"
+        className="h-[100dvh] bg-green w-full"
         pagination={{ clickable: true }}
         dir="ltr"
       >

@@ -32,7 +32,7 @@ html.light .home-swiper::before {
   background: rgba(255, 255, 255, 0.5);
   background: linear-gradient(
     60deg,
-    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 0.5) 20%,
     rgba(255, 255, 255, 0) 100%
   );
 }

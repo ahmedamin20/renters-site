@@ -33,7 +33,7 @@ const ProductForm = () => {
     return (
         
     <Card>
-    <form ref={formRef} onSubmit={handleSubmit} encType="multipart/form-data">
+    <form ref={formRef} className='grid grid-cols-1 gap-[15px] lg:grid-cols-2 p-4' onSubmit={handleSubmit} encType="multipart/form-data">
       <TextInput label={"name"}  name={"name"} placeholder={"Product Name"} />
       <TextInput  label={"description"} name={"description"} placeholder={"Description"} />
       <TextInput label={"price"} name={"price"} placeholder={"Price"} type='number'/>

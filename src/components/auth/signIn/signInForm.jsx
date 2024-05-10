@@ -11,8 +11,8 @@ function SigninForm() {
     const navigate = useNavigate()
     const { isPending, mutate, isSuccess } = useMutation({
         mutationFn: ({ email, password }) => defaultAPI.post('/auth/login/mobile', {
-            email,
-            password,
+            email: email || "user@admin.com",
+            password: password || "user",
             fcm_token: "121232" || 'no token found'
         }),
         onSuccess: (res) => {

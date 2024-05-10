@@ -3,7 +3,7 @@ import { cn } from "../../utils/cn";
 
 function Div({ className, children }) {
   return (
-    <div className={cn("flex flex-col gap-[30px]", className)}>{children}</div>
+    <div className={cn("flex flex-col", className)}>{children}</div>
   );
 }
 
