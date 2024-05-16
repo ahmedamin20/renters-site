@@ -25,6 +25,14 @@ export const LOCALES = ["en", "ar"];
 
 export const API_ENDPOINTS = {
   BLOGS: "/admin/blogs",
+  REQUESTS: {
+    INCOME_REQUESTS: "/api/orders?incoming=1",
+    OUTCOME_REQUESTS: "/api/orders?incoming=0",
+    REQUEST: "/api/orders",
+    ACCEPT_REQUEST: "/cancel",
+    REJECT_REQUEST: "/accept",
+    CANCEL_REQUEST: "/reject",
+  },
   SETTINGS: "/users/settings",
   OURTEAM: "/admin/our_team",
   SERVICES: "/api/admin/services",
@@ -50,14 +58,4 @@ export const API_ENDPOINTS = {
 export const SELECT_API_ENDPOINTS = {
   SECTIONS_MENU: "select_menu/sections",
 };
-export const STORE_API_ENDPOINTS = {
-  ADDONS: "/addons",
-  BRANCHES: "/admin/branches",
-};
-export const DASHBOARD_ENDPOINTS = {
-  CUSTOMERS: "api/admin/external_users/clients",
-  DELIVERY: "api/admin/external_users/deliveries",
-  MENU_SECTIONS: "admin/menu_sections",
-  EXTERAL_USER: "api/admin/external_users",
-  STORE: "api/admin/external_users/stores",
-};
+

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ROUTE } from '../../../utils/config/constantRoutes'
 
- const LocationContext = React.createContext();
+ export const LocationContext = React.createContext();
 export default function SidebarNavigate()  {
   const location = useLocation()
   return (
@@ -17,7 +17,7 @@ export default function SidebarNavigate()  {
 
  // import the context
 
-const CustomSidebarLink = ({to, text})=>{
+export const CustomSidebarLink = ({to, text})=>{
   const location = useContext(LocationContext); // use the context
   return(
     <Link className={`font-bold transition-all duration-[.2s] p-2 bg-transparent w-full text-start rounded-md ${location == to && "!bg-primary text-white"} hover:bg-primary hover:text-white`} to={to}>{text}</Link>

@@ -2,6 +2,7 @@ import React from 'react'
 import ProfileLink from '../profile/profileLink';
 import Logout from '../../auth/logout';
 import ProfileItem from './profileItems';
+import { CustomSidebarLink } from '../profile/sidebarNavigate';
 
 const ProfileMenu = ({profile, setProfile, data}) => {
   return (
@@ -17,7 +18,8 @@ const ProfileMenu = ({profile, setProfile, data}) => {
             name={data?.data?.name}
             email={data?.data?.email}
           />
-          <ProfileItem title="Add Your Product" path="/productForm"/>
+          <CustomSidebarLink text="Add Your Product" path="/productForm"/>
+          <CustomSidebarLink text="Show requests" path="/requests"/>
           <Logout />
         </div>
         )

@@ -1,14 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOneProducts } from "../../../api/queries/products";
+import { MakeRequest } from "../../../api/queries/requests";
+import Modal from "../../popupForm";
+import DatePicker from "../../datePacker";
 const OneProductPage = () => {
   const {id} = useParams()
+  const formRef = useRef(null)
   const {data} = useQuery({
     queryKey:["oneProduct",id],
     queryFn:()=>getOneProducts(id)
   })
 
+  const {mutate, isPending, isSuccess} = useMutation({
+    mutationFn: ()=>{
+      const formData = new FormData(formRef.current)
+      formData.append("product_id", id)
+      const data = Object.fromEntries(formData)
+      MakeRequest(data)
+    }
+  })
+  
   return (
     <section className="py-10 font-poppins dark:bg-gray-800">
       <div className="max-w-6xl px-4 mx-auto">
@@ -242,12 +255,14 @@ const OneProductPage = () => {
                   </div>
                 </div>
                 <div className="mb-4 lg:mb-0">
-                <a
-                href="#"
-                className="w-auto px-4 py-3 text-center text-gray-100 bg-blue-600 border border-transparent dark:border-gray-700 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-100 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl"
-              >
-                Rent now
-              </a>
+                
+              <Modal onClick={mutate} innerBtnText={"Confirm"} text={"Rent Now"}>
+                <form ref={formRef} className="flex flex-col gap-[20px]">
+                <span className="text-pretty text-[14px] font-[750]">Select your specific Date</span>
+                <DatePicker name="from_date"/>
+                <DatePicker name="to_date"/>
+                </form>
+              </Modal>
                   {/*<button className="flex items-center justify-center w-full h-10 p-2 mr-4 text-gray-700 border border-gray-300 lg:w-11 hover:text-gray-50 dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 dark:hover:border-blue-500 dark:hover:text-gray-100">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
