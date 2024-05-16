@@ -39,7 +39,7 @@ export const API_ENDPOINTS = {
   CATEGORIES: "/users/categories",
   ABOUT_US: "/admin/about_us",
   ADS: "/users/ads",
-  PRODUCTS:"/client/products",
+  PRODUCTS:"/public/products",
   CONTACT_US: "/admin/contact_us",
   PARTNERS: "/admin/partners",
   SIGNIN: "/auth/login/dashboard",

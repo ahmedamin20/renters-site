@@ -10,6 +10,8 @@ export default function SidebarNavigate()  {
       <div className='border border-gray-200 p-4  justify-start items-start flex flex-col gap-[10px] rounded-md shadow-md col-span-1 h-fit'>
         <CustomSidebarLink to={ROUTE.PROFILE_ROUTE.PROFILE} text="Profile" />
         <CustomSidebarLink to={ROUTE.PROFILE_ROUTE.CHANGE_PASSWORD} text="Change Password" />
+        <CustomSidebarLink to={ROUTE.PROFILE_ROUTE.INCOM_REQUSETS} text="Icoming Request" />
+        <CustomSidebarLink to={ROUTE.PROFILE_ROUTE.OUTCOM_REQUSETS} text="Outcoming Request" />
       </div>
     </LocationContext.Provider>
   )

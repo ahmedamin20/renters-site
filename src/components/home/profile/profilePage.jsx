@@ -15,10 +15,7 @@ export default function ProfilePageComponent() {
     queryKey: [API_ENDPOINTS.PROFILE],
     queryFn:  getProfile,
   });
-  console.log(data,"profile")
   
-  
-  console.log(data,"profileData")
   return (
     data?.data&&
     <Div className="grid grid-cols-4 gap-[20px] px-3  py-10">

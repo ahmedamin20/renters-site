@@ -23,10 +23,10 @@ const PasswordForm = () => {
   return (
     <form
         ref={passWordRef}
-        className=" gap-10 w-full justify-center mt-[25px]"
+        className="gap-10 w-full justify-center mt-[25px]"
         onSubmit={handlePasswordSubmit}
       >
-      <h2 className="text-start font-bold text-[20px]">User Profile</h2>
+      <h2 className="text-start my-4 font-bold text-[20px]">Password Manipulation</h2>
 
         <div className="px-5 grid grid-cols-1 lg:grid-cols-2 gap-[12px]">
           <PasswordInput

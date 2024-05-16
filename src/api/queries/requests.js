@@ -5,7 +5,7 @@ export const getIncomeRequests = async () => {
     const { data } = await defaultAPI.get(API_ENDPOINTS.REQUESTS.INCOME_REQUESTS);
     return data;
 };
-export const getOutcomeRequests = async () => {
+export const getOutcomeRequest = async () => {
     const { data } = await defaultAPI.get(API_ENDPOINTS.REQUESTS.OUTCOME_REQUESTS);
     return data;
 };

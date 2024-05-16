@@ -15,6 +15,7 @@ import SignupForm from "./components/auth/signUp/signupForm";
 import ProfileForm from "./components/home/profile/profileForm";
 import { ROUTE } from "./utils/config/constantRoutes";
 import PasswordForm from "./components/home/profile/passwordForm";
+import OutcomRequestSection from "./components/requsets/outcomeRequsetSection";
 
 function App() {
   const routes = createBrowserRouter([
@@ -41,17 +42,22 @@ function App() {
             {
               path: ROUTE.PROFILE_ROUTE.CHANGE_PASSWORD,
               element: <PasswordForm />,
-            }
+            },
+            {
+              path: ROUTE.PROFILE_ROUTE.INCOM_REQUSETS,
+              element: <RequestSection />,
+            },
+            {
+              path: ROUTE.PROFILE_ROUTE.OUTCOM_REQUSETS,
+              element: <OutcomRequestSection />,
+            },
           ]
         },
         {
           path: "/productForm",
           element: <ProductForm />,
         },
-        {
-          path: "/requests",
-          element: <RequestSection />,
-        },
+        
         {
           path: "/user/:user_id/order/:order_id",
           element: <UserAndOrderPage />,
