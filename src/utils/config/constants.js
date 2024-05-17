@@ -33,6 +33,10 @@ export const API_ENDPOINTS = {
     REJECT_REQUEST: "/accept",
     CANCEL_REQUEST: "/reject",
   },
+  MY_PRODUCTS:{
+    BASE:"/client/products",
+    
+  },
   SETTINGS: "/users/settings",
   OURTEAM: "/admin/our_team",
   SERVICES: "/api/admin/services",

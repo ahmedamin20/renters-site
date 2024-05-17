@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CardItem = ({image,name,price,desc,id}) => {
+const CardItem = ({image,name,price,desc,id, myProduct}) => {
   return (
     <Link to={`/product/${id}`}>
     <div className="showcase" style={{height:"250px"}}>
