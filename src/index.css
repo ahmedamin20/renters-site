@@ -1432,7 +1432,7 @@ body::-webkit-scrollbar-thumb:hover {
 .product-grid .product-img.hover {
   position: absolute;
   top: 0;
-  left: 25px;
+  left: 15px;
   right: 0;
   z-index: 2;
   opacity: 0;

@@ -17,6 +17,6 @@ export const getMyProducts = async () => {
     return data;
   };
   export const deleteProduct = async (id) => {
-    const { data } = await defaultAPI.delete(`${API_ENDPOINTS.MY_PRODUCTS.BASE}/${id}`, formData);
+    const { data } = await defaultAPI.delete(`${API_ENDPOINTS.MY_PRODUCTS.BASE}/${id}`);
     return data;
   };

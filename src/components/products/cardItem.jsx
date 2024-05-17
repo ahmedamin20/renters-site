@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import Button from "../button";
 import { ROUTE } from "../../utils/config/constantRoutes";
 import Modal from "../popupForm";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteProduct, getMyProducts } from "../../api/queries/myProducts";
 
 const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
-  const location = window.location.pathname
-  console.log(location)
+  const location = window.location.pathname;
+  const {invalidateQueries} = useQueryClient()
+  const {mutate, isPending} = useMutation({
+    mutationFn: (id)=>deleteProduct(id),
+    onSuccess: ()=>invalidateQueries("getMyProducts")
+  })
   return (
    <div className="flex flex-col gap-[15px] border rounded-sm shadow-md">
    <Link to={`/product/${id}`}>
@@ -17,7 +23,6 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
            width: "200px",
            height: "180px",
          }}
-         loading="lazy"
          src={image}
          alt="img"
          className="product-img default"
@@ -25,7 +30,6 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
          height="200"
        />
        <img
-         loading="lazy"
          style={{
            width: "200px",
            height: "180px",
@@ -52,7 +56,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
       location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS && (isMyProduct == true) && (
         <div className="flex flex-row gap-[20px] mb-2 mx-2">
           <Button to={`${ROUTE.PROFILE_ROUTE.EDIT_PRODUCTS}/${id}`} className2={"text-green"} className={"bg-green"} text={"Edit"}/>
-          <Modal innerBtnText={"yes"} onClick={()=>console.log("dleete", id)} className={"bg-red hover:bg-red"} text={"Delete"}>
+          <Modal disable={isPending} innerBtnText={"yes"} onClick={()=>mutate(id)} className={"bg-red hover:bg-red"} text={"Delete"}>
             <div className="flex flex-col gap-[20px]">
               <h1>Are you sure you want to delete this product?</h1>
             </div>
