@@ -56,13 +56,16 @@ function App() {
               path: ROUTE.PROFILE_ROUTE.OUTCOM_REQUSETS,
               element: <OutcomRequestSection />,
             },
+            {
+              path: ROUTE.PROFILE_ROUTE.ADD_PRODUCTS,
+              element: <ProductForm />,
+            },
+            {
+              path: ROUTE.PROFILE_ROUTE.EDIT_PRODUCTS,
+              element: <ProductForm />,
+            },
           ]
         },
-        {
-          path: "/productForm",
-          element: <ProductForm />,
-        },
-        
         {
           path: "/user/:user_id/order/:order_id",
           element: <UserAndOrderPage />,

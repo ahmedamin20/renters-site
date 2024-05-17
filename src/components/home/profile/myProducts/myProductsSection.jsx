@@ -7,6 +7,7 @@ import { getMyProducts } from "../../../../api/queries/myProducts";
 import { API_ENDPOINTS } from "../../../../utils/config/constants";
 import Button from "../../../button";
 import CardTest from "../../../products/card";
+import { ROUTE } from "../../../../utils/config/constantRoutes";
 
 const MyProductsSection = () => {
   const { data } = useQuery({
@@ -20,10 +21,10 @@ const MyProductsSection = () => {
       <h2 className="text-start my-4 font-bold text-[20px]">
         Manage Your Products
       </h2>
-      <Button text="Add"/>
+      <Button to={ROUTE.PROFILE_ROUTE.ADD_PRODUCTS} text="Add"/>
       </div>
       <div className=" bg-transparent flex flex-row justify-evenly flex-wrap pt-12">
-        <CardTest title={" "} myProduct={true} data={data?.data}/>
+        <CardTest title={" "} isMyProduct={true} data={data?.data}/>
       </div>
     </div>
   );

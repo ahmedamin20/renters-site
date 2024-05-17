@@ -1399,23 +1399,26 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .product-grid .showcase {
-  border: 1px solid var(--cultured);
-  border-radius: var(--border-radius-md);
+  /* border: 1px solid var(--cultured); */
+  /* border-radius: var(--border-radius-md); */
+  width: 100%;
   overflow: hidden;
   transition: var(--transition-timing);
   height: 280px !important;
 }
 
 .product-grid .showcase:hover {
-  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
+  /* box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1); */
 }
 
 .product-grid .showcase-banner {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-grid .product-img {
-  width: 100%;
   height: 100%;
   object-fit: cover;
   transition: var(--transition-timing);
@@ -1429,7 +1432,8 @@ body::-webkit-scrollbar-thumb:hover {
 .product-grid .product-img.hover {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 25px;
+  right: 0;
   z-index: 2;
   opacity: 0;
 }
@@ -3087,7 +3091,7 @@ i.fa-solid.fa-trash-can:hover {
       gap: 30px;
       padding: 30px;
       border: 1px solid var(--cultured);
-      box-shadow: 0 3px 5px hsla(0, 0%, 0%, 0.1);
+      /* box-shadow: 0 3px 5px hsla(0, 0%, 0%, 0.1); */
       border-radius: var(--border-radius-md);
       transform: translateY(50px);
       opacity: 0;
@@ -3139,7 +3143,7 @@ i.fa-solid.fa-trash-can:hover {
       padding: 20px 0;
       border-radius: var(--border-radius-md);
       border: 1px solid var(--cultured);
-      box-shadow: 0 3px 5px hsla(0, 0%, 0%, 0.1);
+      /* box-shadow: 0 3px 5px hsla(0, 0%, 0%, 0.1); */
       transform: translateY(50px);
       opacity: 0;
       visibility: hidden;

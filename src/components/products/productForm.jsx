@@ -1,14 +1,16 @@
-import React, { useRef, useState } from 'react'
-import TextInput from '../common/textInput';
-import Card from '../common/Card';
 import { useQuery } from '@tanstack/react-query';
-import { API_ENDPOINTS } from '../../utils/config/constants';
-import { getCategories } from '../../api/queries/categories';
-import SelectMenu from '../common/selectMenu';
-import MainButton from '../common/mianBtn';
+import React, { useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import defaultAPI from '../../api/axios';
+import { getCategories } from '../../api/queries/categories';
+import { API_ENDPOINTS } from '../../utils/config/constants';
+import MainButton from '../common/mianBtn';
+import SelectMenu from '../common/selectMenu';
+import TextInput from '../common/textInput';
 
 const ProductForm = () => {
+    const {id} = useParams();
+    const inUpdate = !!id;
     const [img,setImg] = useState(null)
     const [sendImg,setSendImage] = useState(null)
 
@@ -30,7 +32,11 @@ const ProductForm = () => {
         defaultAPI.post(API_ENDPOINTS.PRODUCTS, formData)
     }
     return (
-    <form ref={formRef} className='grid grid-cols-1 gap-[15px] lg:grid-cols-2 p-[3rem]' onSubmit={handleSubmit} encType="multipart/form-data">
+    <div className='flex flex-col gap-[20px]'>
+    <div className='text-start'>
+        <h2 className='text-[20px] font-bold'>Add Product</h2>
+    </div>
+    <form ref={formRef} className='grid grid-cols-1 gap-[15px] lg:grid-cols-2' onSubmit={handleSubmit} encType="multipart/form-data">
       <TextInput label={"name"}  name={"name"} placeholder={"Product Name"} />
       <TextInput  label={"description"} name={"description"} placeholder={"Description"} />
       <TextInput label={"price"} name={"price"} placeholder={"Price"} type='number'/>
@@ -53,6 +59,7 @@ const ProductForm = () => {
             </div>
             <MainButton className="my-5" type={"submit"}>Add Product</MainButton>
             </form>
+    </div>
   ) 
 }
 
