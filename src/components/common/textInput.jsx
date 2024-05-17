@@ -22,11 +22,10 @@ function TextInput({
   const hiddenFileInput = useRef(null);
 
   const handleClick = () => {
-    if (hiddenFileInput.current) {
       
       hiddenFileInput.current.click();
 
-    }
+    
   };
 
   return (
@@ -70,6 +69,7 @@ function TextInput({
           <div>
             <button
               type="button"
+              onClick={handleClick}
               className={`border rounded-lg p-[13px] text-left`}
             >
               <h1 className={cn("rounded-md border p-[5px] w-fit dark:border-grey", className)}>
@@ -77,7 +77,7 @@ function TextInput({
               </h1>
             </button>
             <input
-              ref={ref}
+              ref={hiddenFileInput}
               type="file"
               onChange={(e) => {
                 if (onChange) {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { cn } from "../../utils/cn";
 
 function SelectMenu({
@@ -11,31 +11,20 @@ function SelectMenu({
   label,
   showDefaultSelected = true,
 }) {
-  const [selected, setSelected] = useState(value || defaultValue || "");
+  const [selected, setSelected] = useState(null);
   const [filteredOptions, setFilteredOptions] = useState(options);
   const selectRef = useRef(null);
-
-  // const handleSearch = (e) => {
-  //   const searchText = e.target.value.toLowerCase();
-  //   const filteredOptions = options.filter((option:any) =>
-  //     option.name.toLowerCase().includes(searchText)
-  //   );
-  //   // Update options list
-  //   setFilteredOptions(filteredOptions);
-  // };
-
+  
+  useEffect(()=>{
+    if(defaultValue)
+      {
+        setSelected(defaultValue)
+      }
+  },[defaultValue])
   return (
     <div>
       {label && <h1 className="mb-[8px] mr-[100%] font-semibold">{label}</h1>}
-      {/* <input
-        type="text"
-        placeholder={t("search")}
-        onChange={handleSearch}
-        className={cn(
-          "w-full rounded-md dark:bg-dark p-[10px] text-dark dark:text-white focus:ring-0 focus:outline-primary border-grey border",
-          className
-        )}
-      /> */}
+      
       <select
         name={name}
         defaultValue={defaultValue}

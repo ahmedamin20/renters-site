@@ -13,6 +13,11 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
     mutationFn: (id)=>deleteProduct(id),
     onSuccess: ()=>invalidateQueries("getMyProducts")
   })
+  let editPath = ROUTE.PROFILE_ROUTE.EDIT_PRODUCTS;
+  let parts = editPath.split('/');
+  parts = parts.slice(0, parts.length - 1);
+  editPath = parts.join('/');
+  console.log(editPath);
   return (
    <div className="flex flex-col gap-[15px] border rounded-sm shadow-md">
    <Link to={`/product/${id}`}>
@@ -41,7 +46,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
        />
      </div>
 
-     <div className="showcase-content ">
+     <div className="showcase-content">
        <a href="#" className="showcase-category">
          {name}
        </a>
@@ -53,15 +58,13 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
    </div>
     </Link>
     {
-      location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS && (isMyProduct == true) && (
+      location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS.trim() && (isMyProduct == true) && (
         <div className="flex flex-row gap-[20px] mb-2 mx-2">
-          <Button to={`${ROUTE.PROFILE_ROUTE.EDIT_PRODUCTS}/${id}`} className2={"text-green"} className={"bg-green"} text={"Edit"}/>
+          <Button to={`${editPath}/${id}`} className2={"text-green"} className={"bg-green"} text={"Edit"}/>
           <Modal disable={isPending} innerBtnText={"yes"} onClick={()=>mutate(id)} className={"bg-red hover:bg-red"} text={"Delete"}>
             <div className="flex flex-col gap-[20px]">
               <h1>Are you sure you want to delete this product?</h1>
             </div>
-
-
           </Modal>
           </div>
       )
