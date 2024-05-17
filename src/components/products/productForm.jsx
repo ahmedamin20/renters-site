@@ -70,7 +70,7 @@ const ProductForm = () => {
     <Suspense fallback={<>Loading...</>}>
     <div className='flex flex-col gap-[20px]'>
     <div className='text-start'>
-        <h2 className='text-[20px] font-bold'>Add Product</h2>
+        <h2 className='text-[20px] font-bold'>{inUpdate ? "Update" : "Add"} Product</h2>
     </div>
     <form ref={formRef} className='grid grid-cols-1 gap-[15px] lg:grid-cols-2' onSubmit={handleSubmit} encType="multipart/form-data">
       <TextInput defaultValue={data?.data?.name} label={"name"}  name={"name"} placeholder={"Product Name"} />
