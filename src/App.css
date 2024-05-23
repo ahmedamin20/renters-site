@@ -28,6 +28,12 @@
     rgba(255, 255, 255, 0) 100%
   );
 }
+/* .react-chatbot-kit-chat-input-form {
+  display: none;
+}
+.react-chatbot-kit-chat-input {
+display: none;
+} */
 html.light .home-swiper::before {
   background: rgba(255, 255, 255, 0.5);
   background: linear-gradient(

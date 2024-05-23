@@ -6,7 +6,6 @@ import HomePage from "./components/home/homePage/home";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import OneProductPage from "./components/common/oneProduct/oneProductPage";
 import ProfilePageComponent from "./components/home/profile/profilePage";
-import Signup from "./components/auth/signUp/signup";
 import RequestSection from "./components/requsets/requsetSection";
 import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrderPage";
 import { Toaster } from "react-hot-toast";
@@ -17,6 +16,7 @@ import { ROUTE } from "./utils/config/constantRoutes";
 import PasswordForm from "./components/home/profile/passwordForm";
 import OutcomRequestSection from "./components/requsets/outcomeRequsetSection";
 import MyProductsSection from "./components/home/profile/myProducts/myProductsSection";
+import Chat from "./components/chatbot/chat";
 
 function App() {
   const routes = createBrowserRouter([
