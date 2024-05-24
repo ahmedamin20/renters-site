@@ -16,7 +16,7 @@ export default function ProfilePageComponent() {
     data?.data && (
       <Div className="grid grid-cols-4 gap-[20px] px-3   py-10">
         <SidebarNavigate />
-        <div className="col-span-3 shadow-md p-2 rounded-md z-[-1] border-gray-200 border w-[95%] mx-auto">
+        <div className="col-span-3 shadow-md p-2 rounded-md z-[1] border-gray-200 border w-[95%] mx-auto">
           <Outlet />
         </div>
       </Div>

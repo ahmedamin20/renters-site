@@ -22,16 +22,20 @@ export const STORE_DENIED_ROUTES = ["/admin", "/site"];
 export const BRANCH_DENIED_ROUTES = [...STORE_DENIED_ROUTES, "/store/:path*"];
 
 export const LOCALES = ["en", "ar"];
-
+export const ORDER_STATUS = {
+  PINDDING:0,
+  ACCEPTED:1,
+  CANCELD:4
+}
 export const API_ENDPOINTS = {
   BLOGS: "/admin/blogs",
   REQUESTS: {
-    INCOME_REQUESTS: "/api/orders?incoming=1",
-    OUTCOME_REQUESTS: "/api/orders?incoming=0",
+    INCOME_REQUESTS: "/api/orders?incoming=0",
+    OUTCOME_REQUESTS: "/api/orders?incoming=1",
     REQUEST: "/api/orders",
-    ACCEPT_REQUEST: "/cancel",
-    REJECT_REQUEST: "/accept",
-    CANCEL_REQUEST: "/reject",
+    ACCEPT_REQUEST: "/accept",
+    REJECT_REQUEST: "/reject",
+    CANCEL_REQUEST: "/cancel",
   },
   AUTH: {
     SIGNIN: "/auth/login/dashboard",

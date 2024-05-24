@@ -26,7 +26,8 @@ export const RejectRequest = async (id) => {
     return data;
 };
 export const CancelRequest = async (id) => {
-    const { data } = await defaultAPI.post(`${API_ENDPOINTS.REQUESTS}/${id}${API_ENDPOINTS.REQUESTS.CANCEL_REQUEST}`);
+    console.log(id)
+    const { data } = await defaultAPI.post(`${API_ENDPOINTS.REQUESTS.REQUEST}/${id}${API_ENDPOINTS.REQUESTS.CANCEL_REQUEST}`);
     return data;
 };
   
