@@ -33,9 +33,13 @@ export const API_ENDPOINTS = {
     REJECT_REQUEST: "/accept",
     CANCEL_REQUEST: "/reject",
   },
-  MY_PRODUCTS:{
-    BASE:"/client/products",
-    
+  AUTH: {
+    SIGNIN: "/auth/login/dashboard",
+    SIGNOUT: "/auth/logout",
+    VERIFY_USER: "auth/verify_user",
+  },
+  MY_PRODUCTS: {
+    BASE: "/client/products",
   },
   SETTINGS: "/users/settings",
   OURTEAM: "/admin/our_team",
@@ -43,11 +47,10 @@ export const API_ENDPOINTS = {
   CATEGORIES: "/users/categories",
   ABOUT_US: "/admin/about_us",
   ADS: "/users/ads",
-  PRODUCTS:"/public/products",
+  PRODUCTS: "/public/products",
   CONTACT_US: "/admin/contact_us",
   PARTNERS: "/admin/partners",
-  SIGNIN: "/auth/login/dashboard",
-  SIGNOUT: "/auth/logout",
+
   PROFILE: "/auth/profile",
   ROLES: "/roles",
   PERMISSIONS_SELECT_MENU: "/select_menu/permissions",
@@ -62,4 +65,3 @@ export const API_ENDPOINTS = {
 export const SELECT_API_ENDPOINTS = {
   SECTIONS_MENU: "select_menu/sections",
 };
-

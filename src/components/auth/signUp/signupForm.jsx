@@ -1,12 +1,18 @@
-import React from "react";
-import SignUpForm from "./signup";
-import FormContainer from "../formContainer";
-import TextHead from "../../common/headText";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import logoLight from "../../../assets/imgs/logoLight.png";
 import { DASHBOARD_NAME } from "../../../utils/config/constants";
-import { Link } from "react-router-dom";
+import TextHead from "../../common/headText";
+import TextInput from "../../common/textInput";
+import Modal from "../../popupForm";
+import FormContainer from "../formContainer";
+import useVirefyUser from "../virefyUser";
+import SignUpForm from "./signup";
 
 const SignupForm = () => {
+  const formRef = useRef(null)
+  const { handleVirefyUser, isPending } = useVirefyUser(formRef);
+  
   return (
     <div
       style={{
@@ -24,13 +30,18 @@ const SignupForm = () => {
         </div>
         <TextHead>welcome to {DASHBOARD_NAME}</TextHead>
         <SignUpForm />
-        <div className="flex justify-between items-center gap-[20px]">
+        <div className="flex justify-evenly items-center gap-[20px]">
         <Link className="my-4" to={"/"}>
           Are you one of us?
         </Link>
-        <Link className="my-4" to={"/"}>
-          Verify Your Account
-        </Link>
+
+        <Modal disable={isPending} onClick={handleVirefyUser} innerBtnText={"Verify"} text={"Verify Your Account"}>
+        <form ref={formRef}>
+        <TextInput placeholder='Email' name='handle' type='email' required={true} label='email' />
+        <TextInput placeholder='Code' name='code' type='code' required={true} label='code' />
+        </form>
+        </Modal>
+
         </div>
       </FormContainer>
     </div>

@@ -2,10 +2,14 @@ import { API_ENDPOINTS } from "../../utils/config/constants";
 import defaultAPI from "../axios";
 
 export const signin = async (body) => {
-    await defaultAPI.post(`${API_ENDPOINTS.SIGNIN}` ,body).then(res=>console.log(res))
+    await defaultAPI.post(`${API_ENDPOINTS.AUTH.SIGNIN}` ,body).then(res=>console.log(res))
 };
 
 export const signout = async () => {
-    const { data } = await defaultAPI.post(API_ENDPOINTS.SIGNOUT);
+    const { data } = await defaultAPI.post(API_ENDPOINTS.AUTH.SIGNOUT);
+    return data;
+  };
+export const verifyUser = async (formData) => {
+    const { data } = await defaultAPI.post(API_ENDPOINTS.AUTH.VERIFY_USER, formData);
     return data;
   };
