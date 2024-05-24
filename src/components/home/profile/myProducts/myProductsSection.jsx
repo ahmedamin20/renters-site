@@ -14,7 +14,6 @@ const MyProductsSection = () => {
     queryKey: "getMyProducts",
     queryFn: getMyProducts,
   });
-  console.log(data?.data);
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row justify-between items-center">

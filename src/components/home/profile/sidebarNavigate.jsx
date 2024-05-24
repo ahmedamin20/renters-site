@@ -23,6 +23,6 @@ export default function SidebarNavigate()  {
 export const CustomSidebarLink = ({to, text})=>{
   const location = useContext(LocationContext); 
   return(
-    <Link className={`font-bold transition-all duration-[.2s] p-2 bg-transparent w-full text-start rounded-md ${location.slice(8).includes(to.slice(8)) && "!bg-primary text-white"} hover:bg-primary hover:text-white`} to={to}>{text}</Link>
+    <Link className={`font-bold transition-all duration-[.2s] p-2 bg-transparent w-full text-start rounded-md ${location?.slice(8).includes(to.slice(8)) && "!bg-primary text-white"} hover:bg-primary hover:text-white`} to={to}>{text}</Link>
   )
 }

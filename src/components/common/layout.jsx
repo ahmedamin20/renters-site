@@ -11,8 +11,7 @@ import Chat from "../chatbot/chat";
 const Wrapper = () => {
   axiosInterceptor();
   return (
-    <div className="mt-[-2rem]">
-    <Chat />
+    <div className="">
       <div className="flex flex-row font-medium  w-full ltr:pr-[25px] rtl:pl-[25px] overflow-hidden">
         <main
           className={` h-full w-full overflow-x-hidden flex flex-col pb-[50px]`}

@@ -19,7 +19,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
   editPath = parts.join('/');
   console.log(editPath);
   return (
-   <div className="flex flex-col gap-[15px] border rounded-sm shadow-md">
+   <div className="flex flex-col gap-[10px] border rounded-sm shadow-md">
    <Link to={`/product/${id}`}>
    <div className="showcase" style={{ height: "250px" }}>
      <div className="showcase-banner">

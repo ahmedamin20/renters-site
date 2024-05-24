@@ -23,9 +23,9 @@ const ProductForm = () => {
 
     const { data } = useQuery({
         queryKey:["getOneProduct",id],
-        queryFn:()=>showMyProduct(id),
+        queryFn:()=> id && showMyProduct(id),
     })
-    console.log(data?.data)
+
     const menuData = categoriesMenu?.data?.map(item=>({ name: item?.name, id: item?.id }))
     const handleImageChange =(e)=>{
         setImg(URL.createObjectURL(e.target.files[0]))
@@ -67,7 +67,7 @@ const ProductForm = () => {
         }
     },[data])
     return (
-    <Suspense fallback={<>Loading...</>}>
+    <Suspense fallback={<p>Loading...</p>}>
     <div className='flex flex-col gap-[20px]'>
     <div className='text-start'>
         <h2 className='text-[20px] font-bold'>{inUpdate ? "Update" : "Add"} Product</h2>
