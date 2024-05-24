@@ -97,6 +97,7 @@ import { ACCESS_TOKEN } from '../../../utils/config/constants'
 import MainButton from '../../common/mianBtn'
 import { useNavigate } from 'react-router-dom'
 import defaultAPI from '../../../api/axios'
+import toast from 'react-hot-toast'
 function SignUpForm() {
     const formRef = useRef()
     const navigate = useNavigate()
@@ -106,8 +107,9 @@ function SignUpForm() {
             password,
             name,password_confirmation,approve_terms
         }),
+        
         onSuccess: () => {
-            navigate("/");
+            toast.success("Success Verify Your Account")
         },
         onError: (error) => {
             console.error("Sign-in error:", error);

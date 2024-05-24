@@ -20,7 +20,6 @@ export default function NewNavbar() {
     queryKey: [API_ENDPOINTS.PROFILE],
     queryFn: () => getProfile(),
   });
-  console.log(data, "proffffff");
   return (
     <header
       className={`h-full w-full bg-blue-400 shadow-lg bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30`}
