@@ -27,10 +27,10 @@ const Modal = ({disable, children, action, text, innerBtnText, onClick, classNam
         <div
           id="popup-modal"
           tabIndex="-1"
-          className="fixed inset-0 z-50 flex justify-center items-center w-full h-full overflow-y-auto shadow-2xl overflow-x-hidden"
+          className="fixed inset-0 z-50 flex justify-center items-center w-full h-full shadow-2xl overflow-y-auto overflow-x-hidden"
         >
           <div className="relative p-4 w-full max-w-md max-h-full">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div className="relative bg-white rounded-lg shadow-2xl">
               <button
                 type="button"
                 onClick={toggleModal}

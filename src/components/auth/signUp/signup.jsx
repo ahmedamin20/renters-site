@@ -127,7 +127,7 @@ function SignUpForm() {
     
     return (
         <form ref={formRef} onSubmit={onSubmit} className='flex flex-col gap-[10px]'>
-        <TextInput placeholder='name' name='name' type='text' required={true} label='Name' />
+        <TextInput placeholder='Name' name='name' type='text' required={true} label='Name' />
             
         <TextInput placeholder='Email' name='email' type='email' required={true} label='Email' />
             <PasswordInput placeholder='******' name='password' required={true} label='Password' />
