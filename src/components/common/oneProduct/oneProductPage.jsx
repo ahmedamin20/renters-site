@@ -5,14 +5,21 @@ import { getOneProducts } from "../../../api/queries/products";
 import { MakeRequest } from "../../../api/queries/requests";
 import DatePicker from "../../datePacker";
 import Modal from "../../popupForm";
-const OneProductPage = () => {
+const OneProductPage = ({productId, isMyProduct = true}) => {
+  const checkRoute = ()=> {
+    if(window.location.pathname.includes("/profile")){
+      return true
+    }else
+    return false
+  }
   const {id} = useParams()
   const formRef = useRef(null)
-  const {data} = useQuery({
-    queryKey:["oneProduct",id],
-    queryFn:()=>getOneProducts(id)
+  const {data, isPending: fetchLoading} = useQuery({
+    queryKey:["oneProduct",id, productId],
+    queryFn:()=> getOneProducts(!checkRoute() ? id : productId)
+    
   })
-
+  console.log(data)
   const {mutate, isPending, isSuccess} = useMutation({
     mutationFn: ()=>{
       const formData = new FormData(formRef.current)
@@ -23,6 +30,7 @@ const OneProductPage = () => {
   })
   
   return (
+    !fetchLoading &&
     <section className="py-10 font-poppins dark:bg-gray-800">
       <div className="max-w-6xl px-4 mx-auto">
         <div className="flex flex-wrap mb-24 -mx-4">
@@ -236,7 +244,8 @@ const OneProductPage = () => {
                 </p>
               </div>
               <div className="mb-6 "></div>
-              <div className="flex flex-wrap items-center mb-6">
+              {
+                !isMyProduct && (<div className="flex flex-wrap items-center mb-6">
                 <div className="mb-4 mr-4 lg:mb-0">
                   <div className="w-28">
                     <div className="relative flex flex-row w-full h-10 bg-transparent rounded-lg">
@@ -256,28 +265,19 @@ const OneProductPage = () => {
                 </div>
                 <div className="mb-4 lg:mb-0">
                 
-              <Modal onClick={mutate} innerBtnText={"Confirm"} text={"Rent Now"}>
+              
+                  <Modal onClick={mutate} innerBtnText={"Confirm"} text={"Rent Now"}>
                 <form ref={formRef} className="flex flex-col gap-[20px]">
                 <span className="text-pretty text-[14px] font-[750]">Select your specific Date</span>
                 <DatePicker name="from_date"/>
                 <DatePicker name="to_date"/>
                 </form>
-              </Modal>
-                  {/*<button className="flex items-center justify-center w-full h-10 p-2 mr-4 text-gray-700 border border-gray-300 lg:w-11 hover:text-gray-50 dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 dark:hover:border-blue-500 dark:hover:text-gray-100">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className=" bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
-                    </svg>
-  </button>*/}
+                </Modal>
                 </div>
                 
-              </div>
+                </div>
+              )
+            }
               <div className="flex gap-4 mb-6">
                 
               </div>

@@ -17,7 +17,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
   let parts = editPath.split('/');
   parts = parts.slice(0, parts.length - 1);
   editPath = parts.join('/');
-  console.log(editPath);
+
   return (
    <div className="flex flex-col gap-[10px] border rounded-sm shadow-md">
    <Link to={`/product/${id}`}>

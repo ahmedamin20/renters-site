@@ -1,11 +1,8 @@
 import React from "react";
-import AdsSection from "../ads/adsSection";
-import Div from "../../common/Div";
-import CategoryBar from "../../common/CategoryBar";
-import UserAndOrderPage from "../../common/userAndOrderScreen/userAndOrderPage";
-import RequestSection from "../../requsets/requsetSection";
-import ProductsSection from "../../products/productsSection";
 import CtegoriesSection from "../../categories/categoriesSection";
+import Div from "../../common/Div";
+import ProductsSection from "../../products/productsSection";
+import AdsSection from "../ads/adsSection";
 
 const HomePage = () => {
   return (
@@ -14,8 +11,6 @@ const HomePage = () => {
         <AdsSection />
         <CtegoriesSection />
         <ProductsSection />
-        <RequestSection />
-        <UserAndOrderPage />
       </Div>
     </>
   );

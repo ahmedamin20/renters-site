@@ -1,7 +1,7 @@
 import { useState } from "react";
-const ShowProductPage = () => {
-  const [data, setData] = useState([]);
-  const URL = "api/orders";
+const ShowProductPage = ({data}) => {
+  // const [data, setData] = useState([]);
+  // const URL = "api/orders";
   //   useEffect(() => {
   //     const fetchData = async () => {
   //       defaultAPI.get(URL).then((res) => {

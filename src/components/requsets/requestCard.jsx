@@ -7,7 +7,7 @@ import { API_ENDPOINTS } from "../../utils/config/constants";
 import { AcceptRequest, RejectRequest } from "../../api/queries/requests";
 import Modal from "../popupForm";
 
-const RequestCard = ({canceled, id, user, product, isMyOrder, isCancelPending, cancel }) => {
+const RequestCard = ({canceled, id, user, product, isMyOrder, isCancelPending, cancel, hasShow }) => {
   const {
     mutate: accept,
     isPending,
@@ -35,9 +35,9 @@ const RequestCard = ({canceled, id, user, product, isMyOrder, isCancelPending, c
           productImage={product?.main_image}
           productName={product?.name}
         />
-        {isMyOrder ? <AcceptAndRejectFooter reject={reject} accept={accept} />
+        {isMyOrder ? <AcceptAndRejectFooter id={id} hasShow={hasShow} reject={reject} accept={accept} />
         : !canceled ?
-        <Modal className={"bg-red mx-auto flex justify-center items-center p-0 my-2 h-8 w-8"} disable={isPending} onClick={()=>cancel(id)} innerBtnText={"Yes"} text={"X"}>
+        <Modal className={"bg-red mx-auto flex justify-center items-center p-0 my-2 h-8 w-8"} disable={isCancelPending} onClick={()=>cancel(id)} innerBtnText={"Yes"} text={"X"}>
           <span>Are You Sure?</span>
         </Modal>
         : <div className="bg-red mx-auto flex justify-center items-center p-2 rounded-md shadow-2xl text-white my-2 w-fit">

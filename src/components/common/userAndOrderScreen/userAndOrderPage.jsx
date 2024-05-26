@@ -1,8 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import ShowProductPage from "../oneProduct/showOneProduct";
+import { useParams } from "react-router-dom";
+import { showRequest } from "../../../api/queries/requests";
 import AcceptAndRejectFooter from "../acceptAndRejectFooter";
+import OneProductPage from "../oneProduct/oneProductPage";
 
 const UserAndOrderPage = () => {
+  const { id } = useParams();
+  const { data } = useQuery({
+    queryKey: ["showOneReq", id],
+    queryFn: () => id && showRequest(id),
+  });
+  const user = data?.data?.from_user,
+    product = data?.data?.product;
+
   return (
     <div className="bg-itemsBgLight dark:bg-itemsBgDark rounded-lg">
       <div className="container mx-auto py-8">
@@ -11,17 +22,17 @@ const UserAndOrderPage = () => {
             <div className=" shadow-lg rounded-lg p-6">
               <div className="flex dark:text-white text-black flex-col items-center">
                 <img
-                  src="https://randomuser.me/api/portraits/men/94.jpg"
+                  src={user?.avatar}
                   className="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
                 />
 
                 <h1 className="text-xl font-bold dark:text-white text-black">
-                  John Doe
+                  {user?.name}
                 </h1>
-                <p className="">Software Developer</p>
-                <AcceptAndRejectFooter/>
+                <p className="">{user?.email}</p>
+                <AcceptAndRejectFooter />
               </div>
-              <hr className="my-6 border-t border-gray-300" />
+              {/*<hr className="my-6 border-t border-gray-300" />
               <div className="flex dark:text-white text-black flex-col">
                 <span className=" uppercase font-bold tracking-wider mb-2">
                   Skills
@@ -33,11 +44,11 @@ const UserAndOrderPage = () => {
                   <li className="mb-2">HTML/CSS</li>
                   <li className="mb-2">Tailwind Css</li>
                 </ul>
-              </div>
+  </div>*/}
             </div>
           </div>
           <div className="col-span-4 sm:col-span-9">
-            <ShowProductPage />
+            <OneProductPage isMyProduct={true} productId={product?.id} />
           </div>
         </div>
       </div>

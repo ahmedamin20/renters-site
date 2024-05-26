@@ -61,15 +61,16 @@ function App() {
               element: <ProductForm />,
             },
             {
+              path: ROUTE.PROFILE_ROUTE.Show_MY_PRODUCT_REQUEST,
+              element: <UserAndOrderPage />,
+            },
+            {
               path: ROUTE.PROFILE_ROUTE.EDIT_PRODUCTS,
               element: <ProductForm />,
             },
           ]
         },
-        {
-          path: "/user/:user_id/order/:order_id",
-          element: <UserAndOrderPage />,
-        },
+        
       ],
     },
     {

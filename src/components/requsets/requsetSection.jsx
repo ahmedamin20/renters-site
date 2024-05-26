@@ -11,12 +11,14 @@ const RequestSection = () => {
     queryFn:  getIncomeRequests,
   })
   
-  
   return (
     <div className="flex flex-col gap-4">
     <h2 className="text-start my-4 font-bold text-[20px]">Manage Your Incoming Requests</h2>
     <div className=" bg-transparent flex flex-row justify-evenly flex-wrap pt-12">
-        <RequestCard />
+      {data?.data?.map(item=>(
+
+        <RequestCard hasShow={true} key={item.id} id={item.id} isMyOrder={true} user={item?.from_user} product={item?.product} />
+      ))}    
       </div>
     </div>
   );

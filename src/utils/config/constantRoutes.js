@@ -6,6 +6,7 @@ export const ROUTE = {
         OUTCOM_REQUSETS:"/profile/outcome-requests",
         MY_PRODUCTS:"/profile/my-products",
         ADD_PRODUCTS: `/profile/my-products/add-product`,
-        EDIT_PRODUCTS:"/profile/edit-product/:id"
+        Show_MY_PRODUCT_REQUEST: `/profile/my-products/show/:id`,
+        EDIT_PRODUCTS:"/profile/edit-product/:id",
     }
 }
