@@ -17,7 +17,7 @@ const Wrapper = () => {
           className={` h-full w-full overflow-x-hidden flex flex-col pb-[50px]`}
         >
           <NewNavbar />
-
+<Chat/>
           <Outlet />
           <ReactQueryDevtools initialIsOpen={false} />
         </main>
