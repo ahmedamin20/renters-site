@@ -16,24 +16,17 @@ const ProductsSection = () => {
     <div className="product-container">
       <div className="container">
         <ProductsSidebar />
-        <div className="product-box">
-        <CardTest data={data?.data}/>
+        <div className="product-box"> 
+          <CardTest isMyProduct={false} data={data?.data} />
           <div className="product-minimal">
             <div className="product-showcase">
               <div className="showcase-wrapper has-scrollbar">
-                <div className="showcase-container">
-                
-                
-                <BestSeatcion product1={data?.data[0]} product2={data?.data[1]}/>
-                
-                </div>
-                </div>
-                
-                </div>
-                </div>
+                <div className="showcase-container"></div>
+              </div>
+            </div>
           </div>
-          
-          </div>
+        </div>
+      </div>
     </div>
   );
 };

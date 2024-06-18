@@ -5,7 +5,7 @@ export default function CustomSwiperSlide({ ad }) {
     <div className="h-full home-swiper relative font-volkhov flex flex-col justify-center gap-5 text-center text-background lg:text-left">
       <img
         style={{ width: "100%", height: "100%" }}
-        src={ad.image}
+        src={"https://www.webmonkey.com/wp-content/uploads/2020/08/free-ecommerce-website-builder-scaled.webp"}
         alt={ad.title}
         className="object-cover absolute -z-50 top-0 left-0"
         fill
@@ -15,9 +15,7 @@ export default function CustomSwiperSlide({ ad }) {
         <h1 className="font-bold text-4xl max-w-4xl max-lg:mx-auto lg:text-7xl">
           {ad.title}
         </h1>
-        <p className="max-w-sm md:max-w-md lg:max-w-lg opacity-80 max-lg:mx-auto text-2xl font-bold text-primary font-cairo ">
-          {ad.discount}
-        </p>
+        
         <p className="max-w-sm md:max-w-md lg:max-w-lg opacity-80 max-lg:mx-auto font-cairo">
           {ad.description}
         </p>
