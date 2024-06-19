@@ -18,6 +18,7 @@ import { ReactQueryProvider } from "./utils/providers/query";
 import { ThemeProvider } from "./utils/providers/theme";
 import ContactUs from "./components/contactUs";
 import ProductsByCategory from "./components/products/productsByCategory";
+import ProductsSection from "./components/products/productsSection";
 
 function App() {
   const routes = createBrowserRouter([
@@ -79,6 +80,10 @@ function App() {
         {
           path: ROUTE.PRODUCTSByCatigory,
           element: <ProductsByCategory />,
+        },
+        {
+          path: ROUTE.ALL_PRODUCTS,
+          element: <ProductsSection />,
         },
         
       ],

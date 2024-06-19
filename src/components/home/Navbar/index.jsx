@@ -8,9 +8,9 @@ const Navbar = () => {
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
   const navLinks = [
     {href:"/home",content:"Home"},
+    {href:ROUTE.ALL_PRODUCTS, content:"Products"},
     {href:"/home",content:"About"},
     // {href:"/home",content:"Services"},
-    {href:"/home",content:"Products"},
     {href:ROUTE.ContactUs,content:"Contact"},
 ]
   const handleMenuToggle = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+    <nav className="bg-white shadow-md border-gray-200 dark:bg-gray-900 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/src/assets/imgs/logoLight.png" className="h-8 object-cover" alt="Renters Logo" />

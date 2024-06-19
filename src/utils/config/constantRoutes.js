@@ -10,5 +10,6 @@ export const ROUTE = {
         EDIT_PRODUCTS:"/profile/edit-product/:id",
     },
     ContactUs:"/contact-us",
-    PRODUCTSByCatigory:"/products/category/:id"
+    PRODUCTSByCatigory:"/products/category/:id",
+    ALL_PRODUCTS:"/all-products"
 }

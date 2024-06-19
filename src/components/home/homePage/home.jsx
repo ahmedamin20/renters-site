@@ -1,6 +1,5 @@
 import React from "react";
 import Div from "../../common/Div";
-import ProductsSection from "../../products/productsSection";
 import AdsSection from "../ads/adsSection";
 import ShopByCategory from "../shopByCatigory/shopByCatigorySection";
 
@@ -10,7 +9,6 @@ const HomePage = () => {
       <Div>
         <AdsSection />
         <ShopByCategory/>
-        <ProductsSection />
       </Div>
     </>
   );
