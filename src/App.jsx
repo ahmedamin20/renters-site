@@ -1,22 +1,23 @@
+import { Toaster } from "react-hot-toast";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
+import SignupForm from "./components/auth/signUp/signupForm";
 import Wrapper from "./components/common/layout";
+import OneProductPage from "./components/common/oneProduct/oneProductPage";
+import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrderPage";
+import HomePage from "./components/home/homePage/home";
+import MyProductsSection from "./components/home/profile/myProducts/myProductsSection";
+import PasswordForm from "./components/home/profile/passwordForm";
+import ProfileForm from "./components/home/profile/profileForm";
+import ProfilePageComponent from "./components/home/profile/profilePage";
+import ProductForm from "./components/products/productForm";
+import OutcomRequestSection from "./components/requsets/outcomeRequsetSection";
+import RequestSection from "./components/requsets/requsetSection";
+import { ROUTE } from "./utils/config/constantRoutes";
 import { ReactQueryProvider } from "./utils/providers/query";
 import { ThemeProvider } from "./utils/providers/theme";
-import HomePage from "./components/home/homePage/home";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import OneProductPage from "./components/common/oneProduct/oneProductPage";
-import ProfilePageComponent from "./components/home/profile/profilePage";
-import RequestSection from "./components/requsets/requsetSection";
-import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrderPage";
-import { Toaster } from "react-hot-toast";
-import ProductForm from "./components/products/productForm";
-import SignupForm from "./components/auth/signUp/signupForm";
-import ProfileForm from "./components/home/profile/profileForm";
-import { ROUTE } from "./utils/config/constantRoutes";
-import PasswordForm from "./components/home/profile/passwordForm";
-import OutcomRequestSection from "./components/requsets/outcomeRequsetSection";
-import MyProductsSection from "./components/home/profile/myProducts/myProductsSection";
-import Chat from "./components/chatbot/chat";
+import ContactUs from "./components/contactUs";
+import ProductsByCategory from "./components/products/productsByCategory";
 
 function App() {
   const routes = createBrowserRouter([
@@ -68,7 +69,16 @@ function App() {
               path: ROUTE.PROFILE_ROUTE.EDIT_PRODUCTS,
               element: <ProductForm />,
             },
+            
           ]
+        },
+        {
+          path: ROUTE.ContactUs,
+          element: <ContactUs />,
+        },
+        {
+          path: ROUTE.PRODUCTSByCatigory,
+          element: <ProductsByCategory />,
         },
         
       ],

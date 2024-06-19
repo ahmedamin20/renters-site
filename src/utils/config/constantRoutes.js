@@ -8,5 +8,7 @@ export const ROUTE = {
         ADD_PRODUCTS: `/profile/my-products/add-product`,
         Show_MY_PRODUCT_REQUEST: `/profile/my-products/show/:id`,
         EDIT_PRODUCTS:"/profile/edit-product/:id",
-    }
+    },
+    ContactUs:"/contact-us",
+    PRODUCTSByCatigory:"/products/category/:id"
 }

@@ -1,8 +1,8 @@
 import React from "react";
 
-const ProductSidebarItem = ({ name, img }) => {
+const ProductSidebarItem = ({ name, img, id, onClick }) => {
   return (
-    <li class="sidebar-menu-category">
+    <li onClick={()=>onClick(id)} class="sidebar-menu-category">
       <button class="sidebar-accordion-menu" data-accordion-btn>
         <div class="menu-title-flex">
           <img

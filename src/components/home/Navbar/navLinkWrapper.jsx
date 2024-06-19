@@ -1,3 +1,4 @@
+import { ROUTE } from "../../../utils/config/constantRoutes";
 import NavLink from "./navLink";
 
 export default function NavLinksWrapper() {
@@ -6,7 +7,7 @@ export default function NavLinksWrapper() {
     {href:"/home",content:"About"},
     // {href:"/home",content:"Services"},
     {href:"/home",content:"Products"},
-    {href:"/home",content:"Contact"},
+    {href:ROUTE.ContactUs,content:"Contact"},
 ]
   return (
     <nav

@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Footer from "../home/footer";
 import { Outlet } from "react-router-dom";
 import withGuard from "../../utils/with_guard";
-import NewNavbar from "../home/Navbar/navbar";
+import NewNavbar from "../home/Navbar/index";
 import { axiosInterceptor } from "../../../axiosInterseptor";
 import Chat from "../chatbot/chat";
 // import Header from "../home/testHeader/header";
@@ -17,7 +17,7 @@ const Wrapper = () => {
           className={` h-full w-full overflow-x-hidden flex flex-col pb-[50px]`}
         >
           <NewNavbar />
-<Chat/>
+          <Chat />
           <Outlet />
           <ReactQueryDevtools initialIsOpen={false} />
         </main>
