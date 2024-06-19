@@ -19,7 +19,7 @@ export default function Logout() {
     window.location.reload()
   };
   return (
-    <MainButton onClick={handleLogout} className=" text-red flex items-center gap-[10px] bg-transparent shadow-md p-0">
+    <MainButton onClick={handleLogout} className=" text-red flex items-center hover:shadow-md transition-all duration-500 gap-[10px] bg-transparent p-2">
       <IoMdLogOut size={ICONS_SIZE} />
       Logout
     </MainButton>

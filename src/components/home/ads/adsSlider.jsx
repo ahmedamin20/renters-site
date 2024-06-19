@@ -30,7 +30,7 @@ export default function HomeSlider() {
         modules={[Navigation, Autoplay, Pagination]}
         loop
         color="red"
-        className="h-[100dvh] bg-green w-full"
+        className="h-[100dvh]  w-full"
         pagination={{ clickable: true }}
         dir="ltr"
       >

@@ -30,7 +30,7 @@ const ContactUs = () => {
             className="animate-pulse duration-1000"
           />
         </div>
-        <section className="bg-green-500 w-1/2  rounded-md border shadow-md p-2">
+        <section className="w-1/2  rounded-md border shadow-md p-2">
           <div className="py-3 px-4 mx-auto max-w-screen-md">
             
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
