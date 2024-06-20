@@ -9,7 +9,7 @@ const HomePage = () => {
     <>
       <Div>
         <AdsSection />
-        <ShopByCategory/>
+          <ShopByCategory/>
         <ProductsSection/>
       </Div>
     </>

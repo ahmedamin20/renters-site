@@ -3,7 +3,7 @@ import defaultAPI from "../axios";
 export const getAllProducts = async (id) => {
   const { data } = await defaultAPI.get(API_ENDPOINTS.PRODUCTS, {
     params: {
-      category_id: id,
+      category_id: id|| "",
       per_page: 100
     },
   });
