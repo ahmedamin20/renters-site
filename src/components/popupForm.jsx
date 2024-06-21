@@ -24,7 +24,7 @@ const Modal = ({disable, children, action, text, innerBtnText, onClick, classNam
         {text}
       </button>
 
-      {isOpen || open && (
+      {open || isOpen  && (
         <div
           id="popup-modal"
           tabIndex="-1"
