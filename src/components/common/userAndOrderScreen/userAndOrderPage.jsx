@@ -7,7 +7,7 @@ import OneProductPage from "../oneProduct/oneProductPage";
 
 const UserAndOrderPage = () => {
   const { id } = useParams();
-  const { data } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ["showOneReq", id],
     queryFn: () => id && showRequest(id),
   });
@@ -15,6 +15,8 @@ const UserAndOrderPage = () => {
     product = data?.data?.product;
 
   return (
+    isPending ? <p className="text-center animate-bounce text-bold">Loading...</p> :
+
     <div className="bg-itemsBgLight dark:bg-itemsBgDark rounded-lg">
       <div className="container mx-auto py-8">
         <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">

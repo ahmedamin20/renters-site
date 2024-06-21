@@ -1,7 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import Login from '../components/auth/signIn/login';
+import LoginWithGoogleButton from '../components/auth/login/Login';
 import { ACCESS_TOKEN } from './config/constants';
-import defaultAPI from '../api/axios';
 const withGuard = (Component) => {
   const Wrapper = (props) => {
     // const {data}=useQuery({
@@ -9,7 +7,7 @@ const withGuard = (Component) => {
     //   queryFn:()=>defaultAPI.get("auth/profile")
     // })
     const isLoggedIn = !!localStorage.getItem(ACCESS_TOKEN)
-    return isLoggedIn ? <Component {...props} /> : <Login />
+    return isLoggedIn ? <Component {...props} /> : <LoginWithGoogleButton />
   }
   return Wrapper
 }

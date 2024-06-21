@@ -1,24 +1,24 @@
 import { Toaster } from "react-hot-toast";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import SignupForm from "./components/auth/signUp/signupForm";
+import RegistartionForm from "./components/auth/register/Register";
 import Wrapper from "./components/common/layout";
 import OneProductPage from "./components/common/oneProduct/oneProductPage";
 import UserAndOrderPage from "./components/common/userAndOrderScreen/userAndOrderPage";
+import ContactUs from "./components/contactUs";
 import HomePage from "./components/home/homePage/home";
 import MyProductsSection from "./components/home/profile/myProducts/myProductsSection";
 import PasswordForm from "./components/home/profile/passwordForm";
 import ProfileForm from "./components/home/profile/profileForm";
 import ProfilePageComponent from "./components/home/profile/profilePage";
 import ProductForm from "./components/products/productForm";
+import ProductsByCategory from "./components/products/productsByCategory";
+import ProductsSection from "./components/products/productsSection";
 import OutcomRequestSection from "./components/requsets/outcomeRequsetSection";
 import RequestSection from "./components/requsets/requsetSection";
 import { ROUTE } from "./utils/config/constantRoutes";
 import { ReactQueryProvider } from "./utils/providers/query";
 import { ThemeProvider } from "./utils/providers/theme";
-import ContactUs from "./components/contactUs";
-import ProductsByCategory from "./components/products/productsByCategory";
-import ProductsSection from "./components/products/productsSection";
 
 function App() {
   const routes = createBrowserRouter([
@@ -90,7 +90,7 @@ function App() {
     },
     {
       path: "/signup",
-      element: <SignupForm />,
+      element: <RegistartionForm />,
     }
   ]);
 
