@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import defaultAPI from "../../../api/axios";
-import { ACCESS_TOKEN } from "../../../utils/config/constants";
+import { ACCESS_TOKEN, userId } from "../../../utils/config/constants";
 const LoginWithGoogleButton = () => {
     const formRef = useRef()
     const navigate = useNavigate()
@@ -14,6 +14,7 @@ const LoginWithGoogleButton = () => {
         }),
         onSuccess: (res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
+            localStorage.setItem(userId, res.data.data.id);
             navigate("/home");
             window.location.reload()
         },
@@ -67,7 +68,7 @@ const LoginWithGoogleButton = () => {
             </a>
           </div>
           <div className="mt-8">
-            <button type="submit" className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">
+            <button disabled={isPending} type="submit" className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">
               Login
             </button>
           </div>

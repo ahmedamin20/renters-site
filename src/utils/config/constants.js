@@ -2,6 +2,7 @@ export const DASHBOARD_NAME = "Renters";
 export const ICONS_SIZE = 25;
 export const BASE_URL = "https://renters-api.ksbgarage.com";
 export const ACCESS_TOKEN = "AccessToken";
+export const userId = "userId";
 export const TYPE = "Type";
 export const PERMISSIONS = "permissions";
 export const STORE_ID = "storeId";
