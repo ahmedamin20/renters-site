@@ -18,9 +18,6 @@ export const ROUTES_TYPES = [ADMIN, STORE, BRANCH, COMMON_ADMIN_STORE];
 export const PUSHERS_KEY = "ac27eff7ae7693f1b7ae",
   PUSHER_SECRET = "00d51e1026dce60151c2",
   PUSHER_CLUSTER = "eu";
-export const ADMIN_DENIED_ROUTES = [];
-export const STORE_DENIED_ROUTES = ["/admin", "/site"];
-export const BRANCH_DENIED_ROUTES = [...STORE_DENIED_ROUTES, "/store/:path*"];
 
 export const LOCALES = ["en", "ar"];
 export const ORDER_STATUS = {

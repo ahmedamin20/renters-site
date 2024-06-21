@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { cn } from '../utils/cn';
 
-const Modal = ({disable, children, action, text, innerBtnText, onClick, className }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Modal = ({disable, children, action, text, innerBtnText, onClick, className, open }) => {
+  const [isOpen, setIsOpen] = useState(false || open);
+  console.log(isOpen)
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -17,13 +18,13 @@ const Modal = ({disable, children, action, text, innerBtnText, onClick, classNam
     <>
       <button
         onClick={toggleModal}
-        className={cn("block text-white bg-primary transition-all  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800", className)}
+        className={cn(`block text-white ${innerBtnText == "Verify" && "hidden"} bg-primary transition-all  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`, className)}
         type="button"
       >
         {text}
       </button>
 
-      {isOpen && (
+      {isOpen || open && (
         <div
           id="popup-modal"
           tabIndex="-1"

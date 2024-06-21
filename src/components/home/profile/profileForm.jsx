@@ -36,7 +36,7 @@ const ProfileForm = () => {
       <input onChange={(e)=>{
         setProfileImage(e?.target.files[0])
         setImageUpdated(true)
-      }} name="image" className={"hidden"} ref={imgRef} type={"file"} label={"Profile Image"}/>
+      }} name="avatar" className={"hidden"} ref={imgRef} type={"file"} label={"Profile Image"}/>
     <img
     onClick={()=>imgRef.current.click()}
     src={
