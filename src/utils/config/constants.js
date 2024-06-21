@@ -68,3 +68,11 @@ export const API_ENDPOINTS = {
 export const SELECT_API_ENDPOINTS = {
   SECTIONS_MENU: "select_menu/sections",
 };
+
+export const ORDER_STATUS_ENUM = {
+    PENDING: 0,
+    RENTING: 1,
+    REJECTED: 2,
+    FINISHED: 3,
+    CANCELED: 4
+};

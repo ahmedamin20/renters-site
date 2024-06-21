@@ -33,7 +33,7 @@ const ProductForm = () => {
     }
 
 
-    const {mutate: add, isPending: addPending} = useMutation({
+    const {mutate: add, isPending: addPending, isSuccess} = useMutation({
         mutationFn:(addData)=>addProduct(addData),
         onSuccess:()=>invalidateQueries(["getMyProducts"])
     })
@@ -45,12 +45,16 @@ const ProductForm = () => {
         e.preventDefault()
         const formData = new FormData(formRef.current);
         formData.append("main_image",sendImg)
+        otherImages.forEach((img, index)=>formData.append(`other_images[${index}]`,img))
         if(!inUpdate){
          add(formData)
-        formRef.current.reset(); 
+        //  if(isSuccess){
+            formRef.current.reset(); 
         setImg(null); 
         setSendImage(null); 
         setOtherImages([]);
+        //  }
+        
         } 
     }
     useEffect(()=>{
@@ -93,7 +97,7 @@ const ProductForm = () => {
                     </div>
                 ))}
             </div>
-            <MainButton className="my-5" type={"submit"}>{inUpdate ? "Update Product" : "Add Product"}</MainButton>
+            <MainButton disabled={addPending} className="my-5" type={"submit"}>{inUpdate ? "Update Product" : "Add Product"}</MainButton>
             </form>
     </div>
     </Suspense>

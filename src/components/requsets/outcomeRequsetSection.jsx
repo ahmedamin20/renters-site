@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { CancelRequest, getOutcomeRequest } from "../../api/queries/requests";
-import { API_ENDPOINTS, ORDER_STATUS } from "../../utils/config/constants";
+import { API_ENDPOINTS, ORDER_STATUS, ORDER_STATUS_ENUM } from "../../utils/config/constants";
 import RequestCard from "./requestCard";
 
 const OutcomRequestSection = () => {
@@ -12,7 +12,7 @@ const OutcomRequestSection = () => {
     queryFn: getOutcomeRequest,
   });
   console.log(data?.data)
-  const { mutate: cancel, isError, isPending, isSuccess } = useMutation({
+  const { mutate: cancel, isPending } = useMutation({
     mutationKey: API_ENDPOINTS.REQUESTS.CANCEL_REQUEST,
     mutationFn: (id) => CancelRequest(id),
     onSuccess: ()=>querClient.invalidateQueries(API_ENDPOINTS.REQUESTS.OUTCOME_REQUESTS),
@@ -29,7 +29,7 @@ const OutcomRequestSection = () => {
       <span className="underline text-sm text-primary cursor-pointer" onClick={()=>setShowCanceld(!showCanceld)}>Show canceled</span>
       </div>
       <div className=" bg-transparent flex flex-row justify-evenly flex-wrap pt-12">
-        {data?.data?.map((item) => item?.status !== ORDER_STATUS.CANCELD && (
+        {data?.data?.map((item) => item?.status !== ORDER_STATUS_ENUM.CANCELED && (
           <RequestCard
             isMyOrder={!!item?.from_user}
             cancel={cancel}
@@ -44,7 +44,7 @@ const OutcomRequestSection = () => {
       </div>
       {showCanceld && (
         <div className=" bg-transparent flex flex-row justify-evenly flex-wrap pt-12">
-        {data?.data?.map((item) => item?.status == ORDER_STATUS.CANCELD && (
+        {data?.data?.map((item) => item?.status == ORDER_STATUS_ENUM.CANCELED && (
           <RequestCard
             canceled={true}
             isMyOrder={!!item?.from_user}
