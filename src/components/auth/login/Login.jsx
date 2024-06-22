@@ -15,7 +15,7 @@ const LoginWithGoogleButton = () => {
         onSuccess: (res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
             localStorage.setItem(userId, res.data.data.id);
-            // navigate("/home");
+            navigate("/");
             // window.location.reload()
         },
         onError: (error) => {
@@ -70,7 +70,7 @@ const LoginWithGoogleButton = () => {
             </a>
           </div>
           <div className="mt-8">
-            <button disabled={isPending} type="submit" className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">
+            <button disabled={isPending} onClick={mutate} type="submit" className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">
               Login
             </button>
           </div>
