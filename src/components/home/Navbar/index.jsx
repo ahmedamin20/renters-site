@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
   const navLinks = [
-    {href:"/home",content:"Home"},
+    {href:"/",content:"Home"},
     {href:ROUTE.ALL_PRODUCTS, content:"Products"},
     // {href:"/home",content:"About"},
     // {href:"/home",content:"Services"},
