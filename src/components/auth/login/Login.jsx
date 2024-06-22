@@ -8,9 +8,9 @@ const LoginWithGoogleButton = () => {
     const navigate = useNavigate()
     const { isPending, mutate, isSuccess } = useMutation({
         mutationFn: ({ email, password }) => defaultAPI.post('/auth/login/mobile', {
-            email: email || "user@admin.com",
-            password: password || "user",
-            fcm_token: "121232" || 'no token found'
+            email: email ,
+            password: password ,
+            fcm_token: "121232" 
         }),
         onSuccess: (res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
@@ -47,6 +47,7 @@ const LoginWithGoogleButton = () => {
             <input
               className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
               type="email"
+              name="email"
               required
             />
           </div>
@@ -57,6 +58,7 @@ const LoginWithGoogleButton = () => {
               </label>
             </div>
             <input
+            name="password"
               className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
               type="password"
             />
