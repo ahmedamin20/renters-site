@@ -7,13 +7,16 @@ import OneProductPage from "../oneProduct/oneProductPage";
 
 const UserAndOrderPage = () => {
   const { id } = useParams();
+  console.log(id)
   const { data, isPending } = useQuery({
     queryKey: ["showOneReq", id],
-    queryFn: () => id && showRequest(id),
+    queryFn: () =>  showRequest(id),
   });
+  if(!data) return null
+
   const user = data?.data?.from_user,
     product = data?.data?.product;
-
+  console.log(data.data)
   return (
     isPending ? <p className="text-center animate-bounce text-bold">Loading...</p> :
 
@@ -50,7 +53,7 @@ const UserAndOrderPage = () => {
             </div>
           </div>
           <div className="col-span-4 sm:col-span-9">
-            <OneProductPage isMyProduct={true} productId={product?.id} />
+            {product && <OneProductPage isMyProduct={true} productId={product?.id} />}
           </div>
         </div>
       </div>

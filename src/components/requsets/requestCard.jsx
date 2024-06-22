@@ -8,6 +8,7 @@ import { AcceptRequest, RejectRequest } from "../../api/queries/requests";
 import Modal from "../popupForm";
 
 const RequestCard = ({canceled, id, user, product, isMyOrder, isCancelPending, cancel, hasShow }) => {
+  console.log(id)
   const {
     mutate: accept,
     isPending,
@@ -45,14 +46,7 @@ const RequestCard = ({canceled, id, user, product, isMyOrder, isCancelPending, c
           </div>
       }
       </div>
-      <div className="px-4 py-4">
-        <div className="flex w-fit mx-auto gap-2 items-center text-gray-800 dark:text-gray-300 mb-4">
-          <RateStar />
-          <RateStar />
-          <RateStar />
-          <RateStar />
-        </div>
-      </div>
+      
     </div>
   );
 };

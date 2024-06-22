@@ -1,13 +1,9 @@
-import React from "react";
-import CardHeader from "../../../requsets/cardHeader";
-import AcceptAndRejectFooter from "../../../common/acceptAndRejectFooter";
-import RateStar from "../../../common/rateStar";
 import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import { getMyProducts } from "../../../../api/queries/myProducts";
-import { API_ENDPOINTS } from "../../../../utils/config/constants";
+import { ROUTE } from "../../../../utils/config/constantRoutes";
 import Button from "../../../button";
 import CardTest from "../../../products/card";
-import { ROUTE } from "../../../../utils/config/constantRoutes";
 
 const MyProductsSection = () => {
   const { data } = useQuery({
