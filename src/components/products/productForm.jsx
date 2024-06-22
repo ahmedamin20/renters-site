@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCategories } from '../../api/queries/categories';
-import { addProduct, showMyProduct } from '../../api/queries/myProducts';
+import { addProduct, showMyProduct, updateProduct } from '../../api/queries/myProducts';
 import { API_ENDPOINTS } from '../../utils/config/constants';
 import MainButton from '../common/mianBtn';
 import SelectMenu from '../common/selectMenu';
@@ -37,15 +37,19 @@ const ProductForm = () => {
         mutationFn:(addData)=>addProduct(addData),
         onSuccess:()=>invalidateQueries(["getMyProducts"])
     })
+    const {mutate: update, isPending: updatePending} = useMutation({
+        mutationFn:(formData)=>updateProduct({formData, id}),
+        onSuccess:()=>invalidateQueries(["getMyProducts"])
+    })
 
 
 
 
     const handleSubmit =(e)=> {
         e.preventDefault()
+        console.log("hi")
         const formData = new FormData(formRef.current);
         formData.append("main_image",sendImg)
-        otherImages.forEach((img, index)=>formData.append(`other_images[${index}]`,img))
         if(!inUpdate){
          add(formData)
         //  if(isSuccess){
@@ -55,7 +59,9 @@ const ProductForm = () => {
         setOtherImages([]);
         //  }
         
-        } 
+        } else{
+            update(formData)
+        }
     }
     useEffect(()=>{
         if(data?.data){
@@ -66,8 +72,7 @@ const ProductForm = () => {
             formRef.current.maximum_days.value = data?.data?.maximum_days
             formRef.current.health.value = data?.data?.health
             formRef.current.category_id.value = data?.data?.category_id
-            setOtherImages(data?.data?.other_images?.map((img)=>img?.url))
-            setImg(data?.data?.main_image)
+            
         }
     },[data])
     return (
@@ -87,7 +92,7 @@ const ProductForm = () => {
         <TextInput label="Product Main Image" onChange={handleImageChange} name="main_image" type='file' />
         {img && <img src={img}  style={{width:"200px",height:"200px",margin:".5rem auto"}}/>}
         
-            <MainButton disabled={addPending} className="my-5" type={"submit"}>{inUpdate ? "Update Product" : "Add Product"}</MainButton>
+            <MainButton disabled={inUpdate ? addPending : updatePending} className="my-5" type={"submit"}>{inUpdate ? "Update Product" : "Add Product"}</MainButton>
             </form>
     </div>
     </Suspense>
