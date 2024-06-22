@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md border-gray-200 dark:bg-gray-900 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/src/assets/imgs/logoLight.png" className="h-8 object-cover" alt="Renters Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Renters</span>
         </Link>
@@ -68,10 +68,10 @@ const Navbar = () => {
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                 </svg>
               </button>
-              <div id="dropdownNavbar" className={`z-10 ${isDropdownOpen ? 'absolute' : 'hidden'} font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}>
+              <div id="dropdownNavbar" className={`z-10 ${isDropdownOpen ? 'absolute' : 'hidden'} font-normal bg-white divide-y divide-gray-100 rounded-lg right-6 shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}>
                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
                   <li>
-                    <Link to={ROUTE.PROFILE_ROUTE.PROFILE} className="block px-4 py-2 text-start hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</Link>
+                    <Link onClick={handleDropdownToggle} to={ROUTE.PROFILE_ROUTE.PROFILE} className="block px-4 py-2 text-start hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</Link>
                     </li>
                     <li aria-labelledby="dropdownNavbarLink">
                     <button
@@ -90,16 +90,16 @@ const Navbar = () => {
                     <div id="doubleDropdown" className={`z-10 ${isSubDropdownOpen ? '' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}>
                       <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
                         <li>
-                          <Link to={ROUTE.PROFILE_ROUTE.MY_PRODUCTS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My Products</Link>
+                          <Link onClick={handleDropdownToggle} to={ROUTE.PROFILE_ROUTE.MY_PRODUCTS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My Products</Link>
                           </li>
                           <li>
-                          <Link to={ROUTE.PROFILE_ROUTE.ADD_PRODUCTS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Add Products</Link>
+                          <Link onClick={handleDropdownToggle} to={ROUTE.PROFILE_ROUTE.ADD_PRODUCTS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Add Products</Link>
                           </li>
                           <li>
-                          <Link to={ROUTE.PROFILE_ROUTE.INCOM_REQUSETS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Incoming Requsets</Link>
+                          <Link onClick={handleDropdownToggle} to={ROUTE.PROFILE_ROUTE.INCOM_REQUSETS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Incoming Requsets</Link>
                           </li>
                           <li>
-                          <Link to={ROUTE.PROFILE_ROUTE.OUTCOM_REQUSETS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Outcoming Requsets</Link>
+                          <Link onClick={handleDropdownToggle} to={ROUTE.PROFILE_ROUTE.OUTCOM_REQUSETS} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Outcoming Requsets</Link>
                         </li>
                       </ul>
                     </div>

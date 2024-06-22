@@ -15,8 +15,8 @@ const LoginWithGoogleButton = () => {
         onSuccess: (res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
             localStorage.setItem(userId, res.data.data.id);
-            navigate("/home");
-            window.location.reload()
+            // navigate("/home");
+            // window.location.reload()
         },
         onError: (error) => {
             console.error("Sign-in error:", error);

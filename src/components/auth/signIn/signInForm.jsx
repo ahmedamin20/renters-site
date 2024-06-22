@@ -17,7 +17,7 @@ function SigninForm() {
         }),
         onSuccess: (res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
-            navigate("/home");
+            // navigate("/home");
             window.location.reload()
         },
         onError: (error) => {

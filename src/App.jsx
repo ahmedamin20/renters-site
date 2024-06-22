@@ -23,11 +23,11 @@ import { ThemeProvider } from "./utils/providers/theme";
 function App() {
   const routes = createBrowserRouter([
     {
-      path: "/",
+      path: "",
       element: <Wrapper />,
       children: [
         {
-          path: "/home",
+          path: "",
           element: <HomePage />,
         },
         {
