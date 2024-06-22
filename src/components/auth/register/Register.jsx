@@ -9,7 +9,10 @@ import TextInput from "../../common/textInput";
 import Modal from "../../popupForm";
 import useVirefyUser from "../virefyUser";
 import toast from "react-hot-toast";
+import useResend from "../resend";
 const RegistartionForm = () => {
+  const codeFormRef = useRef(null)
+ 
   const [open, setOpen] = useState(false)
   const [Image, setImage] = useState({
     profile: image,
@@ -18,6 +21,7 @@ const RegistartionForm = () => {
   })
   const formRef = useRef(null)
   const { handleVirefyUser, isPending } = useVirefyUser(formRef);
+  const { handleResend, isPending: resendPending } = useResend(formRef);
   
   const formRefRegister = useRef()
     const { isPending: registerPending, mutate, isSuccess } = useMutation({
@@ -159,7 +163,13 @@ const RegistartionForm = () => {
               <TextInput placeholder='Email' name='handle' type='email' required={true} label='email' />
               <TextInput placeholder='Code' name='code' type='code' required={true} label='code' />
               </form>
+
               </Modal>
+              <Modal action={"button"} className={"my-4"} open={open} disable={resendPending} onClick={handleResend} innerBtnText={"Resend"} text={"Resend Code"}>
+            <form ref={codeFormRef}>
+            <TextInput placeholder='Email' name='handle' type='email' required={true} label='email' />
+            </form>
+            </Modal>
               </div>
             </form>
           </div>

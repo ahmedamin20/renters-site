@@ -59,7 +59,7 @@ const Modal = ({disable, children, action, text, innerBtnText, onClick, classNam
               <div className="p-4 md:p-5">
                 {children}
                 <div className='w-full mt-[2rem] justify-center flex flex-row mx-auto '>
-                <button onClick={handleClick} disabled={disable} type={action || "submit"} className="bg-blue-700 shadow-lg  hover:bg-blue-800 py-2.5 px-5 ms-3 text-sm font-medium focus:outline-none bg-blue rounded-lg border border-gray-200 text-white transition-all focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                <button onClick={handleClick} disabled={disable} type={action || "submit" } className="bg-blue-700 shadow-lg  hover:bg-blue-800 py-2.5 px-5 ms-3 text-sm font-medium focus:outline-none bg-blue rounded-lg border border-gray-200 text-white transition-all focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                    {innerBtnText}
                 </button>
                 <button onClick={toggleModal} type="button" className=" shadow-lg py-2.5 px-5 ms-3 text-sm font-medium focus:outline-none hover:text-black bg-red rounded-lg border border-gray-200 text-white hover:bg-gray-100 transition-all focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>
