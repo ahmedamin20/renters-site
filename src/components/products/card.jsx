@@ -6,7 +6,7 @@ const CardTest = ({ data, title, isMyProduct }) => {
     <div className="product-main">
       <h2 className="title !border-none">{title || ""}</h2>
 
-      <div className="product-grid">
+      <div className="flex flex-wrap gap-[10px] w-auto">
         {data?.map((item) => (
           <CardItem
             key={item.id}

@@ -3,7 +3,6 @@ import { cn } from '../utils/cn';
 
 const Modal = ({disable, children, action, text, innerBtnText, onClick, className, open }) => {
   const [isOpen, setIsOpen] = useState(false || open);
-  console.log(isOpen)
 
   const toggleModal = () => {
     setIsOpen(!isOpen);

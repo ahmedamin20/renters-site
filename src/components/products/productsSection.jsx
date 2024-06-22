@@ -12,20 +12,10 @@ const ProductsSection = () => {
     queryFn: ()=>getAllProducts(selected),
   });
   return (
-    <div className="product-container">
-      <div className="container">
+    <div className="!w-full flex flex-row gap-[20px]">
         <ProductsSidebar selected={selected} setSelected={setSelected} />
-        <div className="product-box"> 
           <CardTest isMyProduct={false} data={data?.data} />
-          <div className="product-minimal">
-            <div className="product-showcase">
-              <div className="showcase-wrapper has-scrollbar">
-                <div className="showcase-container"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          
     </div>
   );
 };

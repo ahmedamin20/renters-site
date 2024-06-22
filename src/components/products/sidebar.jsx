@@ -11,16 +11,16 @@ const ProductsSidebar = ({setSelected, selected}) => {
   });
   
   return (
-    <div class="sidebar  has-scrollbar" data-mobile-menu>
-      <div class="sidebar-category">
-        <div class="sidebar-top">
-          <h2 class="sidebar-title">Categories</h2>
+    <div className="flex flex-col p-1" data-mobile-menu>
+      <div className="sidebar-category">
+        <div className="sidebar-top">
+          <h2 className="sidebar-title">Categories</h2>
 
-          <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+          <button className="sidebar-close-btn" data-mobile-menu-close-btn>
             <ion-icon name="close-outline"></ion-icon>
           </button>
         </div>
-        <ul class="sidebar-menu-category-list">
+        <ul className="sidebar-menu-category-list">
           {data?.data?.map((item) => (
             <ProductSidebarItem
               onClick={()=>setSelected(item.id)}
