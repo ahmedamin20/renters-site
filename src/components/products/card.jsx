@@ -14,7 +14,7 @@ const CardTest = ({ data, title, isMyProduct }) => {
             id={item?.id}
             name={item?.name}
             price={item?.price}
-            desc={item?.description}
+            desc={""}
             image={item?.main_image}
             className={"md:w-[300px]"}
           />
