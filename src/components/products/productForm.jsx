@@ -86,17 +86,7 @@ const ProductForm = () => {
         <SelectMenu defaultValue={data?.data?.category_id} options={menuData} name={"category_id"} label="Category"/>
         <TextInput label="Product Main Image" onChange={handleImageChange} name="main_image" type='file' />
         {img && <img src={img}  style={{width:"200px",height:"200px",margin:".5rem auto"}}/>}
-        <TextInput label="Product other Image" name='otherImages' multiple={true} placeholder={'Other Images'} onChange={(e) => setOtherImages([...otherImages, ...e.target.files])} type='file' />
-            <div className=' grid grid-cols-4 gap-[25px]'>
-                {otherImages?.map((image, index) => (
-                    <div key={index} className=' relative w-fit'>
-                        <img src={!inUpdate ? URL.createObjectURL(image) : image} width={150} height={100} alt='' />
-                        <button type="button" onClick={() => {
-                            setOtherImages(otherImages.filter((img) => img !== image))
-                        }} className=' absolute top-0 right-0 bg-red-500 text-red rounded-full p-1'>X</button>
-                    </div>
-                ))}
-            </div>
+        
             <MainButton disabled={addPending} className="my-5" type={"submit"}>{inUpdate ? "Update Product" : "Add Product"}</MainButton>
             </form>
     </div>

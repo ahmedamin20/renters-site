@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md border-gray-200 dark:bg-gray-900 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/src/assets/imgs/logoLight.png" className="h-8 object-cover" alt="Renters Logo" />
+          <img src="../../../../src/assets/imgs/logoLight.png" className="h-8 object-cover" alt="Renters Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Renters</span>
         </Link>
         <button
