@@ -6,7 +6,7 @@ const CardTest = ({ data, title, isMyProduct }) => {
     <div className="product-main">
       <h2 className="title !border-none">{title || ""}</h2>
 
-      <div className="flex flex-wrap gap-[10px] w-auto">
+      <div className="flex w-full flex-wrap gap-[10px] ">
         {data?.map((item) => (
           <CardItem
             key={item.id}
@@ -16,6 +16,7 @@ const CardTest = ({ data, title, isMyProduct }) => {
             price={item?.price}
             desc={item?.description}
             image={item?.main_image}
+            className={"md:w-[300px]"}
           />
         ))}
       </div>
