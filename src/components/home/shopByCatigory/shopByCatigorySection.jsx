@@ -30,7 +30,7 @@ const ShopByCategory = () => {
                 src={category[4]?.image}
                 alt="girl-image"
               />
-              <Link to={`/products/category/${category[4].id}`} onClick={()=> console.log(category[4]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
+              <Link to={`/products/category/${category[4]?.id}`} onClick={()=> console.log(category[4]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
                 {category[4]?.name}
               </Link>
               <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
@@ -44,7 +44,7 @@ const ShopByCategory = () => {
                   src={category[0]?.image}
                   alt="shoe-image"
                 />
-                <Link to={`/products/category/${category[0].id}`} onClick={()=>console.log(category[0]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
+                <Link to={`/products/category/${category[0]?.id}`} onClick={()=>console.log(category[0]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
                   {category[0]?.name}
                 </Link>
                 <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
@@ -56,7 +56,7 @@ const ShopByCategory = () => {
                   src={category[1]?.image}
                   alt="watch-image"
                 />
-                <Link to={`/products/category/${category[1].id}`} onClick={()=>console.log(category[1]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
+                <Link to={`/products/category/${category[1]?.id}`} onClick={()=>console.log(category[1]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
                   {category[1]?.name}
                 </Link>
                 <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50"></div>
@@ -70,7 +70,7 @@ const ShopByCategory = () => {
                 src={category[2]?.image}
                 alt="girl-image"
               />
-              <Link to={`/products/category/${category[2].id}`} onClick={()=>console.log(category[2]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
+              <Link to={`/products/category/${category[2]?.id}`} onClick={()=>console.log(category[2]?.id)} className="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white">
                 {category[2]?.name}
               </Link>
             </div>
