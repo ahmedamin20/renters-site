@@ -150,19 +150,19 @@ const RegistartionForm = () => {
                 </button>
                 <p className="mb-2 w-full text-xs text-gray-600 text-center">
                   Already have an account?{" "}
-                  <Link to="/login">
+                  <Link to="/">
                     <span className="text-primary font-semibold">Sign in</span>
                   </Link>
                 </p>
+                <Modal className={"my-4"} open={open} disable={isPending} onClick={handleVirefyUser} innerBtnText={"Verify"} text={"Verify Your Account"}>
+              <form ref={formRef}>
+              <TextInput placeholder='Email' name='handle' type='email' required={true} label='email' />
+              <TextInput placeholder='Code' name='code' type='code' required={true} label='code' />
+              </form>
+              </Modal>
               </div>
             </form>
           </div>
-          <Modal open={open} disable={isPending} onClick={handleVirefyUser} innerBtnText={"Verify"} text={"Verify Your Account"}>
-        <form ref={formRef}>
-        <TextInput placeholder='Email' name='handle' type='email' required={true} label='email' />
-        <TextInput placeholder='Code' name='code' type='code' required={true} label='code' />
-        </form>
-        </Modal>
         </div>
     </div>
   );
