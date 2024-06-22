@@ -1,7 +1,7 @@
 import { API_ENDPOINTS } from '../../utils/config/constants';
 import defaultAPI from '../axios';
 export const getMyProducts = async () => {
-    const { data } = await defaultAPI.get(API_ENDPOINTS.MY_PRODUCTS.BASE);
+    const { data } = await defaultAPI.get(API_ENDPOINTS.MY_PRODUCTS.BASE, {params:{per_page:100}});
     return data;
   };
   export const showMyProduct = async (id) => {

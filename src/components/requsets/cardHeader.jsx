@@ -6,7 +6,7 @@ const CardHeader = ({productImage, userName, productName}) => {
     <div className="text-center w-full">
             <div className='h-32 w-32 rounded-full flex border-4  mx-auto my-4 border-white'>
             <img
-              className=" w-full h-full object-contain "
+              className=" w-full h-full object-cover rounded-md "
               src={productImage}
               alt=""
             />
