@@ -19,7 +19,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
 
   return (
    
-    <Link to={`/product/${id}`} className="sm:w-full my-2 rounded-md h-[350px] hover:shadow-xl transition-all duration-500 bg-gray-100 md:w-[30%]">
+    <Link to={`/product/${id}`} className={`sm:w-full my-2 rounded-md ${location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS.trim() && (isMyProduct == true) ? "h-[450px]": "h-[350px]"} hover:shadow-xl transition-all duration-500 bg-gray-100 md:w-[30%]`}>
     <Link to={`/product/${id}`}>
     <img className="rounded-md object-cover h-[200px]" style={{width:"100%"}} src={image} alt="" />
     <h6 className="font-bold">{price}/day</h6>
@@ -37,7 +37,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct }) => {
     </div>
     {
       location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS.trim() && (isMyProduct == true) && (
-        <div className="flex flex-row gap-[20px] mb-2 mx-2">
+        <div className="flex flex-row gap-[20px] mb-2 mx-auto w-fit">
         <Button to={`${editPath}/${id}`} className2={"text-green"} className={"bg-green"} text={"Edit"}/>
         <Modal disable={isPending} innerBtnText={"yes"} onClick={()=>mutate(id)} className={"bg-red hover:bg-red"} text={"Delete"}>
             <div className="flex flex-col gap-[20px]">
