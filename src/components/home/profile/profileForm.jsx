@@ -14,7 +14,7 @@ const ProfileForm = () => {
     const profileFormRef = useRef(null);
     const { data } = useQuery({queryKey: [API_ENDPOINTS.PROFILE]})
     const [profileImage, setProfileImage] = useState(data?.data.avatar);
-    
+    console.log(data)
     const { mutate, isPending } = useMutation({
         mutationFn: updateProfile,
         onSuccess: () => getProfile(),
@@ -69,6 +69,23 @@ const ProfileForm = () => {
             defaultValue={data?.data?.email}
             required={true}
           />
+          <TextInput
+            label="Address"
+            placeholder="Address"
+            type="text"
+            name="address"
+            defaultValue={data?.data?.address}
+            required={true}
+          />
+          <TextInput
+            label="Phone"
+            placeholder="Phone"
+            type="tel"
+            name="phone"
+            defaultValue={data?.data?.phone}
+            required={true}
+          />
+          
         </div>
         <MainButton
           isLoading={isPending}
