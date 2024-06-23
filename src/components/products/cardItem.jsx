@@ -20,7 +20,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct, className }) => {
 
   return (
    
-    <Link to={`/product/${id}`} className={cn(`sm:w-full my-2 rounded-md ${location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS.trim() && (isMyProduct == true) ? "h-[400px]": "h-[350px]"} hover:shadow-xl transition-all duration-500 bg-gray-100 md:w-[30%]`, className)}>
+    <div to={`/product/${id}`} className={cn(`sm:w-full my-2 rounded-md ${location == ROUTE.PROFILE_ROUTE.MY_PRODUCTS.trim() && (isMyProduct == true) ? "h-[400px]": "h-[350px]"} hover:shadow-xl transition-all duration-500 bg-gray-100 md:w-[30%]`, className)}>
     <Link to={`/product/${id}`}>
     <img className="rounded-md object-cover h-[200px]" style={{width:"100%"}} src={image} alt="" />
     <h6 className="font-bold">{price}/day</h6>
@@ -48,7 +48,7 @@ const CardItem = ({ image, name, price, desc, id, isMyProduct, className }) => {
           </div>
       )
     }
-   </Link>
+   </div>
   );
 };
 
